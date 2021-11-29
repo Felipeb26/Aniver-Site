@@ -1,4 +1,15 @@
-body{
-    background: linear-gradient(#cec5c5, #0099ff, #808080);
+body {
+
+    background: linear-gradient(45deg,#4169E1, #1B98E0, #e8f1f2);
     background-attachment: fixed;
-} 
+}
+
+.rodape{
+    background-color: #1B98E0;
+    color: white;
+    text-align: center;
+}
+
+.rodape .container{
+    padding-top: 40px;
+}
