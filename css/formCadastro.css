@@ -1,14 +1,62 @@
 .meuForm{
     display: inline-block;
-    padding-top: 5rem;
+    padding-top: 3rem;
     padding-left: 10rem;
     width: 50rem;
     left: 50%;
 }
 
 .prevImg{
-    margin-top: 10px;
+    margin-top: 5px;
     display: inline-block;
     width: 20rem;
     height: 15rem;
 }
+
+#texto{
+    display: block;
+    color: #000;
+    font-weight: 300;
+    font-style: italic;
+    font-weight: bold;
+    padding: 5px;
+}
+input[type="file"]{
+    display: none;
+}
+
+.arqui ,.Enviar{
+    background: rgb(90, 84, 84);
+    display: inline-block;
+    cursor: pointer;
+    width: 10rem;
+    padding-left: 20px;
+}
+.enviar{
+    display: none;
+}
+
+
+/* #validaEmail.invalid .Email:before{
+    content: '';
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    width: 24px;
+    height: 24px;
+    background: url(/img/invalid.png);
+    background-size: cover;
+    z-index: 1000;
+}
+#validaEmail.valid .Email:before{
+    content: '';
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    width: 24px;
+    height: 24px;
+    background: url(/img/valid.png);
+    background-size: cover;
+    z-index: 1000;
+} */
+
