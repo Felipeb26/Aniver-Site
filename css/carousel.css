@@ -22,11 +22,11 @@ input[type=radio]{
 }
 
 .carrosel{
-    margin-top: 5rem;
+    margin-top: 1rem;
     width: 37.5rem;
-    max-width: 37.5rem;
+    max-width: 20rem;
     height: 37.5rem;
-    max-height: 37.5rem;
+    max-height: 20rem;
     display: flex;
     transform-style: preserve-3d;
     justify-content: center;
