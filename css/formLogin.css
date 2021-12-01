@@ -1,16 +1,17 @@
 .meuForm{
-    display: inline-block;
+    float: right;
+    display: inline-flexbox;
     padding-top: 3rem;
     padding-left: 10rem;
-    width: 50rem;
-    left: 50%;
+    padding-right: 10rem;
+    width: 60rem;
 }
 
 .prevImg{
     margin-top: 5px;
-    display: inline-block;
-    width: 20rem;
-    height: 15rem;
+    margin-left: 5rem;
+    width: 30rem;
+    height: 25rem;
 }
 
 #texto{
@@ -29,8 +30,13 @@ input[type="file"]{
     background: rgb(90, 84, 84);
     display: inline-block;
     cursor: pointer;
+    margin-left: 10rem;
     width: 10rem;
     padding-left: 20px;
+}
+
+.arqui{
+    margin-left: 5rem;
 }
 .enviar{
     display: none;
