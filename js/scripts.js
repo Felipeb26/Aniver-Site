@@ -1,7 +1,7 @@
-var link = 'https://3224-189-8-4-21.ngrok.io'
+var link = 'https://f9c8-189-8-4-21.ngrok.io'
 
 let url = link + '/login';
-let url2 = link + '/pessoa';
+let urlPessoa = link + '/pessoa';
 let url3 = link + '/nome/';
 let url4 = link + 'arquivo';
 
@@ -29,6 +29,38 @@ const RecebeToken = () => {
                 JSON.stringify(data));
         })
 };
+
+const Aniversariantes = () =>{
+    fetch(urlPessoa)
+    .then((response) =>{
+        localStorage.token();
+        if(!response.ok) throw new Error()
+        console.log(response.ok);
+        return response.json();
+    })
+    .then((data) =>{
+        console.log(data.nome);
+    })
+    .catch((error) =>{
+        console.error(error.message)
+    })
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 const RefreshToken = setInterval(RecebeToken, 15*60*1000, true);
