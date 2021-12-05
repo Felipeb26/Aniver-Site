@@ -1,71 +1,44 @@
-input[type=radio]{
-    display: none;
-}
-
 .carrosel img{
-    width: 100%;
-    height: 100%;
+    width: 30rem;
+    height: 20rem;
     border-radius: 10px;
     object-fit: cover;
 }
 
-.foto{
-    position: absolute;
-    width: 20rem;
-    height: 20rem;
-    left: 0;
-    right: 0;
+.carrosel {
+    width: 15rem;
+    max-width: 15rem;
+    height: 15rem;
+    max-height: 15rem;
     margin-left: 20rem;
-    margin-top: 10rem;
-    cursor: pointer;
-    transition: transform 0.4s ease;
-}
-
-.carrosel{
-    margin-top: 1rem;
-    width: 37.5rem;
-    max-width: 20rem;
-    height: 37.5rem;
-    max-height: 20rem;
+    margin-top: 5rem;
     display: flex;
-    transform-style: preserve-3d;
-    justify-content: center;
     align-items: center;
 }
 
-.fotos{
-    position: relative;
-    width: 100%;
-    height: 100%;
-    margin-bottom: 20px;
+.images {
+    display: none;
 }
 
-#item-1:checked ~ .fotos #song-3,
-#item-2:checked ~ .fotos #song-1,
-#item-3:checked ~ .fotos #song-2{
-    transform: translateX(50%) scale(0.8);
-    opacity: 1;
-    z-index: 0;
+.Back,
+.forward {
+    cursor: pointer;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    font-size: 19px;
+    transition: 0.4s ease;
 }
 
-#item-1:checked ~ .fotos #song-2,
-#item-2:checked ~ .fotos #song-3,
-#item-3:checked ~ .fotos #song-1{
-    transform: translateX(-50%) scale(0.8);
-    opacity: 1;
-    z-index: 0;
+.Back{
+    border-radius: 5px  0 0 5px;
 }
 
-#item-1:checked ~ .fotos #song-1,
-#item-2:checked ~ .fotos #song-2,
-#item-3:checked ~ .fotos #song-3{
-    transform: translateX(0) scale(1);
-    opacity: 1;
-    z-index: 1;
+.forward {
+    border-radius: 0px 5px 5px 0px;
 }
 
-#item-1:checked ~ .fotos #song-2 img,
-#item-2:checked ~ .fotos #song-3 img,
-#item-3:checked ~ .fotos #song-1 img{ 
-    box-shadow: 0px 0px 5px 0px rgba(81, 81, 81, 0.47);
-} 
+.Back:hover,
+.forward:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+

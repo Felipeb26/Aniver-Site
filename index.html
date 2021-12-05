@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="./css/styles.css">
     <!-- scripts js -->
     <script src="./js/scripts.js" defer></script>
-    <script src="./js/consumir.js" defer></script>
+    <script src="./js/carrosel.js" defer></script>
     <script src="https://kit.fontawesome.com/8c5126b2bc.js" crossorigin="anonymous" defer></script>
     <title>Carrosel-projeto</title>
 </head>
@@ -38,20 +38,20 @@
     </header>
 
     <div class="carrosel">
-        <input type="radio" name="slider" id="item-1" checked>
-        <input type="radio" name="slider" id="item-2">
-        <input type="radio" name="slider" id="item-3">
-        <div class="fotos">
-            <label for="item-1" class="foto" id="song-1">
-                <img src="./img/ZarakiBase.png">
-            </label>
-            <label for="item-2" class="foto" id="song-2">
-                <img src="./img/Zaraki.jpg">
-            </label>
-            <label for="item-3" class="foto" id="song-3">
-                <img src="./img/ZarakiBankai.jpg">
-            </label>
-        </div>
+        <a class="Back" onclick="plusSlides(-1)">&#10094;</a>
+        <label class="images">
+            <img src="./img/yamamoto.png">
+        </label>
+        <label class="images">
+            <img src="./img/ichigo.png">
+        </label>
+        <label class="images">
+            <img src="./img/aizen.png">
+        </label>
+        <label class="images">
+            <img src="./img/ZarakiBase.png">
+        </label>
+        <a class="forward" onclick="plusSlides(1)">&#10095;</a>
     </div>
 
     <main class="Aniversariantes">

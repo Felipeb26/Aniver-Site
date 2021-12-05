@@ -46,21 +46,4 @@ const Aniversariantes = () =>{
     })
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 const RefreshToken = setInterval(RecebeToken, 15*60*1000, true);
