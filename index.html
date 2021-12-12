@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="./css/styles.css">
     <!-- scripts js -->
     <script src="./js/scripts.js" defer></script>
+    <script src="./js/getPeople.js" defer></script>
     <script src="./js/carrosel.js" defer></script>
-    <script src="https://kit.fontawesome.com/8c5126b2bc.js" crossorigin="anonymous" defer></script>
     <title>Carrosel-projeto</title>
 </head>
 
@@ -25,7 +25,7 @@
                     aria-controls="navbar-links" aria-expanded="false" aria-label="Toggler navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse justify-content-end" id="navbar-links">
+                <div class="collapse navbar-collapse" id="navbar-links">
                     <div class="navbar-nav">
                         <a class="nav-item nav-link" id="home-menu">Pesquisa</a>
                         <a class="nav-item nav-link" id="home-menu" href="./index.html">Home</a>
@@ -37,23 +37,28 @@
         </div>
     </header>
 
-    <div class="carrosel">
-        <a class="Back" onclick="plusSlides(-1)">&#10094;</a>
-        <label class="images">
-            <img src="./img/yamamoto.png">
-        </label>
-        <label class="images">
-            <img src="./img/ichigo.png">
-        </label>
-        <label class="images">
-            <img src="./img/aizen.png">
-        </label>
-        <label class="images">
-            <img src="./img/ZarakiBase.png">
-        </label>
-        <a class="forward" onclick="plusSlides(1)">&#10095;</a>
-    </div>
+    <div class="itemCarrosel">
+        <h2 class="show">Aniversariantes de Hoje</h2>
+        <div class="carrosel">
 
+            <a class="Back" id="btnCarrosel" onclick="plusSlides(-1)">&#10094;</a>
+            <div class="images">
+                <img src="./img/yamamoto.png">
+            </div>
+            <div class="images">
+                <img src="./img/ichigo.png">
+            </div>
+            <div class="images">
+                <img src="./img/aizen.png">
+            </div>
+            <div class="images">
+                <img src="./img/ZarakiBase.png">
+            </div>
+
+            <a class="forward" id="btn" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+    </div>
+    
     <main class="Aniversariantes">
         <div class="pessoas">
             <div class="imagem">
@@ -62,9 +67,9 @@
             <div class="dados">
                 <h3>id</h3>
                 <span>nome</span><br>
-                <h3>id</h3>
+                <h3>nome</h3>
                 <span>nome</span><br>
-                <h3>id</h3>
+                <h3>email</h3>
                 <span>nome</span>
             </div>
         </div>
@@ -81,20 +86,6 @@
                 <span>nome</span>
             </div>
         </div>
-        <div class="pessoas">
-            <div class="imagem">
-                <img src="./img/yamamoto.png" alt="">
-            </div>
-            <div class="dados">
-                <h3>id</h3>
-                <span>nome</span><br>
-                <h3>id</h3>
-                <span>nome</span><br>
-                <h3>id</h3>
-                <span>nome</span>
-            </div>
-        </div>
-
     </main>
 </body>
 

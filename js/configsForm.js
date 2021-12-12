@@ -33,9 +33,10 @@ function validation(){
     }
 }
 
-const inputName = document.querySelector("#inputCPF");
+const limitCPF = document.querySelector("inputCPF");
 
-inputName.addEventListener("keypress", function(e){
+function limitsCPF(){
+    limitCPF.addEventListener("keypress", function(e){
 
     const keyCode = (e.keyCode ? e.keyCode : e.wicth)
 
@@ -45,3 +46,4 @@ inputName.addEventListener("keypress", function(e){
         e.preventDefault();
      }
 });
+}

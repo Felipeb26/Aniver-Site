@@ -38,8 +38,14 @@ header,
     color: white;
 }
 
+#navbar-links{
+   left: 400px;
+}
+
 #navbar-links a {
+    display: block;
     color: white;
+    font-weight: bold;
 }
 
 .navbar-exppand-lg .navbar-nav .nav-link {

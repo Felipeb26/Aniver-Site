@@ -7,7 +7,8 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <link rel="stylesheet" href="./css/stylesCadatro.css">
-  <script src="./js/loginconfig.js"></script>
+  <script src="./js/addPeople.js"></script>
+  <script src="./js/configsForm.js"></script>
   <title>pagina de cadastro</title>
 </head>
 
@@ -21,7 +22,7 @@
           aria-controls="navbar-links" aria-expanded="false" aria-label="Toggler navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbar-links">
+        <div class="collapse navbar-collapse" id="navbar-links">
           <div class="navbar-nav">
             <a class="nav-item nav-link" id="home-menu">Pesquisa</a>
             <a class="nav-item nav-link" id="home-menu" href="./index.html">Home</a>
@@ -33,7 +34,7 @@
     </div>
   </header>
 
-  <form class="meuForm" enctype="multipart/form-data">
+  <form class="meuForm" id="meuForm" enctype="multipart/form-data">
     <div class="mb-0">
       <label for="nomeCompleto" class="form-label">Nome Completo</label>
       <input type="text" class="form-control" id="nomeCompleto" aria-describedby="nomeCompleto" maxlength="50">
@@ -58,7 +59,7 @@
     <label class="form-control arqui" for="arquivo">ESCOLHER FOTO</label>
     <input type="file" accept="image/*" onchange="loadFile(event)" name="aquivo" id="arquivo"/>
     <label class="form-control Enviar" for="envio">CADASTRAR</label>
-    <button type="submit" class="btn-secondary enviar" name="envio" id="envio"></button>
+    <button type="submit" class="btn-secondary enviar" name="envio" id="envio" onclick="makePost()"></button>
     <img class="prevImg"  loading="lazzy" id="imgPrev"/> 
   </form>
 </body>
