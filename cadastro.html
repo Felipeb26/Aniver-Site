@@ -14,34 +14,26 @@
 
 <body>
   <header>
-    <div class="container" id="nav-container">
-      <nav class="navbar navbar-expand-lg fixed-top">
-        <a href="#" class="navbar-brand">
-          <img id="logo" src="./img/Multi.png" alt="logo impresa"></a>
-        <button class="navbar-toggler" type="button" data-toggler="collapse" data-tagert="#navbar-links"
-          aria-controls="navbar-links" aria-expanded="false" aria-label="Toggler navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbar-links">
-          <div class="navbar-nav">
-            <a class="nav-item nav-link" id="home-menu">Pesquisa</a>
-            <a class="nav-item nav-link" id="home-menu" href="./index.html">Home</a>
-            <a class="nav-item nav-link" id="home-menu" href="./cadastro.html">Cadastro</a>
-            <a class="nav-item nav-link" id="home-menu" href="./login.html">Login</a>
-          </div>
-        </div>
-      </nav>
-    </div>
+    <img class="logo" src="./img/Multi.png" alt="">
+    <nav>
+      <ul class="nav_links">
+        <li><a class="link" href="#">PESQUISA</a></li>
+        <li><a class="link" href="./index.html">HOME</a></li>
+        <li><a class="link" href="./cadastro.html">CADASTRO</a></li>
+        <li><a class="link" href="./login.html">LOGIN</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <form class="meuForm" id="meuForm" enctype="multipart/form-data">
+  <form class="meuForm" enctype="multipart/form-data">
     <div class="mb-0">
       <label for="nomeCompleto" class="form-label">Nome Completo</label>
       <input type="text" class="form-control" id="nomeCompleto" aria-describedby="nomeCompleto" maxlength="50">
     </div>
     <div class="mb-0">
       <label for="cpfCompleto" class="form-label">CPF</label>
-      <input type="text" class="form-control inputCPF" id="cpfCompleto" aria-describedby="cpfCompleto" maxlength="11" minlength="10">
+      <input type="text" class="form-control inputCPF" id="cpfCompleto" aria-describedby="cpfCompleto" maxlength="11"
+        minlength="10">
     </div>
     <div class="mb-0">
       <label for="dataNascimento" class="form-label">Data de Nascimento</label>
@@ -49,7 +41,8 @@
     </div>
     <div class="mb-0" id="validaEmail" action="#">
       <label for="email" class="form-label">Email address</label>
-      <input type="email" class="form-control Email" id="email" aria-describedby="email" placeholder="Adicione o email aqui" onkeydown="validation()">
+      <input type="email" class="form-control Email" id="email" aria-describedby="email"
+        placeholder="Adicione o email aqui" onkeydown="validation()">
       <span id="texto"></span>
     </div>
     <div class="mb-3 form-check">
@@ -57,10 +50,10 @@
       <label class="form-check-label" for="exampleCheck1">Check me out</label>
     </div>
     <label class="form-control arqui" for="arquivo">ESCOLHER FOTO</label>
-    <input type="file" accept="image/*" onchange="loadFile(event)" name="aquivo" id="arquivo"/>
+    <input type="file" accept="image/*" onchange="loadFile(event)" name="aquivo" id="arquivo" />
     <label class="form-control Enviar" for="envio">CADASTRAR</label>
-    <button type="submit" class="btn-secondary enviar" name="envio" id="envio" onclick="makePost()"></button>
-    <img class="prevImg"  loading="lazzy" id="imgPrev"/> 
+    <button type="submit" class="btn-secondary enviar" name="envio" id="envio" onclick="send()"></button>
+    <img class="prevImg" id="imgPrev" />
   </form>
 </body>
 

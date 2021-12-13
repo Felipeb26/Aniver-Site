@@ -1,29 +1,35 @@
-const url = "http://localhost:8080/pessoa/inclui";
+var nomeForm = '';
+var cpfForm = '';
+var dataForm = '';
+var emailForm = '';
+var imageForm = '';
 
-const addPessoa = document.querySelector('#meuForm');
-
-//inputs do formulario
-const nomeForm = document.getElementById('nomeCompleto').value;
-const cpfForm = document.getElementById('cpfCompleto').value;
-const dataForm = document.getElementById('dataNascimento').value;
-const emailForm = document.getElementById('email').value;
-const imageForm = document.getElementById('arquivo').value;
-
-const data ={
-    nome: nomeForm,
-    cpf: cpfForm,
-    nascimento: dataForm,
-    email: emailForm,
-    base64: imageForm
-}
+nomeForm = document.querySelector("#nomeCompleto");
+cpfForm = document.querySelector("#cpfCompleto");
+dataForm = document.querySelector("#dataNascimento");
+emailForm = document.querySelector("#email");
 
 
-function makePost(){
-    fetch(url,{
-        method: "POST",
-        headers:{
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(data)
-    })
+
+var raw = JSON.stringify({
+  "nome": nomeForm.value,
+  "cpf": cpfForm.value,
+  "email": emailForm.value,
+  "nascimento": dataForm.value,
+  "base64": imageForm.value
+});
+
+var requestOptions = {
+  method: 'POST',
+  headers: {'Content-Type': 'application/json'},
+  body: raw,
+  redirect: 'follow'
+};
+
+
+function send(){
+fetch("http://localhost:8080/pessoa/inclui", requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
 }

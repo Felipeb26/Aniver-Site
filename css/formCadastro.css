@@ -1,9 +1,10 @@
 .meuForm{
     display: inline-block;
     padding-top: 3rem;
-    padding-left: 10rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
     width: 50rem;
-    left: 50%;
+    left: 25%;
 }
 
 .prevImg{

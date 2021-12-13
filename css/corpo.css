@@ -1,3 +1,9 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
 body {
     user-select: none;
     background: linear-gradient(18deg, #76cdee 6%, #fff 020%, #1b98e0 062%, #4169e1 100%);
