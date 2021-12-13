@@ -1,5 +1,17 @@
+.cardCadastro{
+    background: rgba(39, 37, 37, 0.747);
+    box-shadow: 5px 5px 5px;
+    margin: 3rem 1rem 0 1rem;
+    width: 50rem;
+    height: 48rem; 
+    border-radius: 0.5rem;
+}
+
+
 .meuForm{
     display: inline-block;
+    color: #1b98e0;
+    font-weight: bold;
     padding-top: 3rem;
     padding-left: 5rem;
     padding-right: 5rem;
@@ -13,7 +25,7 @@
     margin-bottom: 5rem;
     display: inline-block;
     width: 30rem;
-    height: 25rem;
+    height: 20rem;
 }
 
 #texto{
@@ -29,23 +41,26 @@ input[type="file"]{
 }
 
 .arqui ,.Enviar{
-    background: rgb(73, 1, 1);
+    background: #1b98e0;
     color: white;
     display: inline-block;
     font-weight: bold;
     cursor: pointer;
     width: 10rem;
-    padding-left: 20px;
 }
 
 .arqui:hover ,.Enviar:hover{
-    background: white;
-    color: rgb(73, 1, 1);
-    border-color: rgb(73,1,1);
+    color:#1b98e0;
+    background-color: #ffffffcc;
+    border-color: #1b98e0;
 }
 
 .arqui{
     margin-left: 10rem;
+    padding-left: 20px;
+}
+.Enviar{
+    padding-left: 30px;
 }
 .enviar{
     display: none;

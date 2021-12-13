@@ -10,15 +10,21 @@
 }
 
 .Aniversariantes .pessoas{
-    max-width: 300px;
-    max-height: 20rem;
+    max-width: 18rem;
+    max-height: 30rem;
     position: relative;
     padding: 10px;
     margin: 10px;
     border-radius: 0.5rem;
     flex-direction: column-reverse;
-    background-color: brown;
+    background-color: rgba(39, 37, 37, 0.747);
+    box-shadow: 5px 5px 5px;
 }
+
+/* .Aniversariantes .pessoas:hover{
+    height: 28rem;
+    width: 50rem;
+} */
 
 .Aniversariantes .pessoas .imagem{
     position: relative;
@@ -28,17 +34,16 @@
 }
 
 .Aniversariantes .pessoas .imagem img{
-    max-height: 10rem;
+    max-height: 12rem;
     max-width: 100%;
 }
-h4, span{
+.dado, .respDado{
     display: inline-block;
 }
-span{
-    font-weight: bold;
-}
+
 .Aniversariantes .pessoas .dados{
     position: relative;
     margin-top: -140px;
-    padding: 10px;
+    padding: 10px 10px 10px 0;
+    color: rgba(255, 255, 255, 0.774);
 }

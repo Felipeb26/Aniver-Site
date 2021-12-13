@@ -1,10 +1,24 @@
+.alteraDeleta{
+    display: flex;
+    justify-content: space-between;
+}
+
+.cardAltera{
+     background: rgba(39, 37, 37, 0.747);
+     box-shadow: 5px 5px 5px;
+     margin-right: 5%;
+     margin-top: 3rem;
+     height: 47rem; 
+}
+
+
 .meuForm {
-    float: right;
-    display: inline-flexbox;
-    padding-top: 3rem;
-    padding-left: 10rem;
-    padding-right: 5rem;
+    display: inline-block;
+    min-width: 10rem;
+    margin: 2rem 1rem 0 1rem;
     width: 50rem;
+    color: #1b98e0;
+    font-weight: bold;
 }
 
 .prevImg {
@@ -12,7 +26,7 @@
     margin-left: 5rem;
     margin-bottom: 5rem;
     width: 30rem;
-    height: 25rem;
+    height: 20rem;
 }
 
 #texto {
@@ -30,57 +44,59 @@ input[type="file"] {
 
 .arqui,
 .Enviar {
-    background: rgb(73,1,1);
+    background: #1b98e0;
     display: inline-block;
     cursor: pointer;
     width: 10rem;
-    padding-left: 20px;
     color: #fff;
     font-weight: bold;
 }
 
 .arqui {
     margin-left: 10rem;
+    padding-left: 20px;
 } 
-
+.Enviar{
+    padding-left: 30px;
+}
 .enviar {
     display: none;
 }
 
-.card {
-    right: 5;
+.cardPessoa{
     display: inline-flex;
+    background: rgba(39, 37, 37, 0.747);
+    box-shadow: 5px 5px 5px;
     margin-top: 5rem;
     margin-left: 3rem;
+    padding: 5px;
     width: 30rem;
-    height: 45rem;
+    height: 40rem;
 }
 
-.imgCard {
-    padding-top: 5px;
-    padding-left: 1rem;
-    padding-right: 1rem;
+.pessoa img {
     width: 100%;
     height: 23rem;
 }
 
-h4,
-span {
+.dado, .respDado{
     display: inline-block;
+    color: white;
 }
 
 .meuDelete {
-    background: rgb(73, 1, 1);
+    background: #1b98e0;
     display: inline-block;
     cursor: pointer;
     width: 100%;
-    padding-left: 20px;
+    padding-left: 8rem;
     color: #fff;
-    font-weight: bold;
+    font-weight: bolder;
+    font-size: 20px;
 }
 
 .meuDelete:hover, .arqui:hover, .Enviar:hover{
-    color:rgb(73,1,1);
-    background-color: #fff;
-    border-color: rgb(73,1,1);
+    color:#1b98e0;
+    background-color: #ffffffcc;
+    border-color: #1b98e0;
 }
