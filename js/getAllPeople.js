@@ -1,7 +1,7 @@
 const cards = document.querySelector('.Aniversariantes');
 let output = '';
 
-const url = 'http://localhost:8080/pessoa/';
+const url = "http://localhost:8080/pessoa/";
 //Get lendo os posts
 fetch(url, {
         mode: "cors",
@@ -14,6 +14,11 @@ fetch(url, {
     })
     .then(res => res.json())
     .then(data => criaCard(data))
+
+
+
+
+
  const criaCard = (itens) =>{
     itens.forEach (item =>{
      output +=
@@ -33,6 +38,7 @@ fetch(url, {
         </div>
     </div>`;
             cards.innerHTML = output;
+            
     })
     };
 

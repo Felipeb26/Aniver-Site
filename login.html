@@ -12,7 +12,7 @@
   <title>Login</title>
 </head>
 
-<body>
+<body onload="getUser()">
   <header>
     <img class="logo" src="./img/Multi.png" alt="">
     <nav>
@@ -43,9 +43,8 @@
           <span class="respDado">cpf</span><br>
       </div>
       <label class="form-control meuDelete" for="apaga">Deletar Usuario</label>
-      <button type="submit" class="enviar" name="apaga" id="apaga"></button>
+      <button type="submit" class="enviar" name="apaga" id="apaga" onclick="respoDelete()"></button>
   </div>
-  
       
 <div class="card cardAltera">
   <form class="meuForm" enctype="multipart/form-data">
@@ -75,7 +74,7 @@
     <label class="form-control arqui" for="arquivo">ESCOLHER FOTO</label>
     <input type="file" accept="image/*" onchange="loadFile(event)" name="aquivo" id="arquivo" />
     <label class="form-control Enviar" for="envio">ALTERAR</label>
-    <button type="submit" class="btn-secondary enviar" name="envio" id="envio"></button>
+    <button type="submit" class="btn-secondary enviar" name="envio" id="envio" onclick="respoALtera()"></button>
     <img class="prevImg" id="imgPrev" />
   </form>
 </div>

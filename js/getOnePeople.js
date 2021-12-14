@@ -1,3 +1,16 @@
+// function getUser(){
+// window.prompt("CONFIRME O CPF COMPLETO ABAIXO!")
+// }
+
+function respoALtera(){
+    window.alert("alterado com sucesso")
+}
+
+function respoDelete(){
+    window.alert("deletado com sucesso")
+}
+
+
 const cardDelete = document.querySelector('.cardPessoa');
 let output = '';
 
@@ -13,7 +26,7 @@ fetch(url, {
         }
     })
     .then(res => res.json())
-    .then(data => console.log(data));
+    .then(data => criaCard(data));
 
 
 // const criaCard = (itens) => {
@@ -37,3 +50,23 @@ fetch(url, {
 //         cardDelete.innerHTML = output;
 //     })
 // };
+
+const criaCard = (itens) =>{
+     output +=
+    `<div class="pessoas">
+        <div class="imagem">
+            <img src="./img/yamamoto.png" alt="">
+        </div>
+        <div class="dados">
+            <h5 class="dado">id:</h5>
+            <span class="respDado">${itens.id}</span><br>
+            <h5 class="dado">nome:</h5>
+            <span class="respDado">${itens.nome}</span><br>
+            <h5>email:</h5>
+            <span>${itens.email}</span><br>
+            <h5 class="dado">nasceu:</h5>
+            <span class="respDado">${itens.nascimento}</span>
+        </div>
+    </div>`;
+            cards.innerHTML = output;
+    }
