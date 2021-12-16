@@ -1,14 +1,39 @@
-const btn = document.querySelector("#envio");
+var urlEnvio = 'http://localhost:8080/pessoa/inclui';
 
-btn.addEventListener("click", function (e) {
-  e.preventDefault();
+var nome = '';
+var cpf = '';
+var nascimento = '';
+var email = '';
 
-  const nomeForm = document.getElementById('#nomeCompleto');
-  const cpfForm = document.getElementById('#cpfCompleto');
-  const dataForm = document.getElementById('#dataNascimento');
-  const emailForm = document.getElementById('#email');
+function getFormCadastro() {
+    nome = document.querySelector("#nome");
+    cpf = document.querySelector("#cpf");
+    nascimento = document.querySelector("#nascimento");
+    email = document.querySelector("#Email");
+  console.log(nome.value,cpf.value,
+    nascimento.value,email.value);
+}
 
-  const value = name.value;
-
-  console.log(value)
-})
+function cadastrar(){
+    fetch(urlEnvio, {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            nome: nome.value,
+            cpf: cpf.value,
+            email: email.value,
+            nascimento: nascimento.value
+        })
+    })
+    .then(res => res.json())
+    .then(data => {
+        const dataArr = [];
+        dataArr.push(data);
+    })
+    .catch(err =>{
+        alert(err);
+        console.log("erro")
+    })
+}

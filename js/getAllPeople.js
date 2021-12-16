@@ -15,10 +15,6 @@ fetch(url, {
     .then(res => res.json())
     .then(data => criaCard(data))
 
-
-
-
-
  const criaCard = (itens) =>{
     itens.forEach (item =>{
      output +=

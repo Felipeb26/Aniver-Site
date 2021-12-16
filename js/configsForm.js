@@ -9,7 +9,7 @@ var loadFile = function(event) {
 
 function validation(){
     var validaEmail = document.getElementById("validaEmail");
-    var email = document.getElementById("email").value;
+    var email = document.getElementById("Email").value;
     var texto = document.getElementById("texto");
     var pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
 
@@ -23,7 +23,7 @@ function validation(){
         validaEmail.classList.remove("valid")
         validaEmail.classList.add("invalid")
         texto.innerHTML = "email invalido"
-        texto.style.color = "#ff0000"
+        texto.style.color = "#bb0606"
     }
     if (email == ""){
         validaEmail.classList.remove("valid")
@@ -33,17 +33,12 @@ function validation(){
     }
 }
 
-const limitCPF = document.querySelector("inputCPF");
-
-function limitsCPF(){
-    limitCPF.addEventListener("keypress", function(e){
-
-    const keyCode = (e.keyCode ? e.keyCode : e.wicth)
-
-    console.log(keyCode);
-
-     if(keyCode < 47 && keyCode > 58){
-        e.preventDefault();
-     }
-});
+function mascaraCpf(){
+  const cpf = document.querySelector("#cpf");
+  
+  if(cpf.value.length == 3 || cpf.value.length == 7){
+    cpf.value += "."
+  }else if(cpf.value.length == 11){
+    cpf.value += "-"
+  }
 }

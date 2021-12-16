@@ -7,34 +7,37 @@
      background: rgba(39, 37, 37, 0.747);
      box-shadow: 5px 5px 5px;
      margin-right: 5%;
-     margin-top: 3rem;
+     margin-top: 2rem;
      height: 47rem; 
 }
 
 
 .meuForm {
     display: inline-block;
-    min-width: 10rem;
-    margin: 2rem 1rem 0 1rem;
-    width: 50rem;
     color: #1b98e0;
     font-weight: bold;
+    padding-top: 3rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    width: 50rem;
+    left: 25%;
 }
 
 .prevImg {
-    margin-top: 5px;
+    margin-top: 0.5rem;
     margin-left: 5rem;
     margin-bottom: 5rem;
+    display: inline-block;
     width: 30rem;
     height: 20rem;
 }
 
 #texto {
     display: block;
-    color: #000;
-    font-weight: 300;
+    color: #fff;
     font-style: italic;
     font-weight: bold;
+    font-size: 1.5rem;
     padding: 5px;
 }
 
@@ -45,11 +48,43 @@ input[type="file"] {
 .arqui,
 .Enviar {
     background: #1b98e0;
+    color: #ffffff;
     display: inline-block;
+    font-weight: bold;
     cursor: pointer;
     width: 10rem;
-    color: #fff;
-    font-weight: bold;
+}
+
+.arqui:hover,
+.Enviar:hover {
+    color: #1b98e0;
+    background-color: #ffffffcc;
+    border-color: #1b98e0;
+}
+
+.arqui {
+    margin-left: 10rem;
+    margin-right: 1rem;
+    padding-left: 20px;
+}
+
+.Enviar {
+    padding-left: 30px;
+}
+
+.enviar {
+    display: none;
+}
+
+.dados label {
+    font-size: 1.2rem;
+}
+
+.dados input{
+    height: 2.5rem;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 1.3rem;
 }
 
 .arqui {
