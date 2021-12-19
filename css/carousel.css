@@ -1,7 +1,6 @@
-
 .carrosel img{
-    width: 35rem;
-    height: 25rem;
+    width: 45rem;
+    height: 30rem;
     border-radius: 10px;
     object-fit: cover;
 }
@@ -11,8 +10,8 @@
     height: 15rem;
     position: relative;
     bottom: 0;
-    left: 35%;
-    margin-top: 5rem;
+    left: 30%;
+    margin-top: 8rem;
     display: flex;
     align-items: center;
 }
@@ -46,6 +45,8 @@
 .show{
     position: relative;
     text-align: center;
-    margin-top: 1rem;
+    margin: 0rem;
+    font-size: 3rem;
+    text-shadow: 2px 2px #00d9ff;
     font-family: 'Lucida Sans';
 }

@@ -1,49 +1,44 @@
-// var link = 'https://85dd-2804-431-c7c8-abce-2dcc-def0-d5c2-5076.ngrok.io'
+var link = 'http://localhost:8080/login'
 
-// let url = link + '/login';
-// let urlPessoa = link + '/pessoa';
-// let url3 = link + '/nome/';
-// let url4 = link + 'arquivo';
+var raw = JSON.stringify({
+    "email": "felipeb2silva@gmail.com",
+    "senha": "felipe2001"
+  });
 
+const RecebeToken = () => {
+    fetch(link, {
+            method: 'POST',
+            mode: 'cors',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: raw
+        })
+        .then(response => {
+            if (response.ok) {
+                return response.text();
+            } else {
+                alert('Não foi possível conectar no servidor')
+            }
+        }).then(data => {
+            localStorage.setItem('token',
+                JSON.stringify(data));
+        })
+};
 
-// const RecebeToken = () => {
-//     fetch(url, {
-//             method: 'POST',
-//             mode: 'cors',
-//             headers: {
-//                 'Accept': '*/*',
-//                 'Content-Type': 'application/json',
-//             },
-//             body: `{
-//                 "chave":"dGVzdGVAZ3J1cG9tdWx0aXBsaWNhLmNvbS5icjoxMjM0"
-//             }`,
-//         })
-//         .then(response => {
-//             if (response.ok) {
-//                 return response.text();
-//             } else {
-//                 alert('Não foi possível conectar no servidor')
-//             }
-//         }).then(data => {
-//             localStorage.setItem('token',
-//                 JSON.stringify(data));
-//         })
-// };
-
-// const Aniversariantes = () =>{
-//     fetch(urlPessoa)
-//     .then((response) =>{
-//         localStorage.token();
-//         if(!response.ok) throw new Error()
-//         console.log(response.ok);
-//         return response.json();
-//     })
-//     .then((data) =>{
-//         console.log(data.nome);
-//     })
-//     .catch((error) =>{
-//         console.error(error.message)
-//     })
-// }
-
-// const RefreshToken = setInterval(RecebeToken, 15*60*1000, true);
+const Aniversariantes = () =>{
+    fetch(link)
+    .then((response) =>{
+        localStorage.token();
+        if(!response.ok) throw new Error()
+        console.log(response.ok);
+        return response.json();
+    })
+    .then((data) =>{
+        console.log(data.nome);
+    })
+    .catch((error) =>{
+        console.error(error.message)
+    })
+}
+const RefreshToken = setInterval(RecebeToken, 15*60*1000, true);

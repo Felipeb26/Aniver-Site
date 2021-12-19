@@ -1,4 +1,4 @@
-var slidePosition = 0;
+var slidePosition = 1;
 SlideShow();
 
 function SlideShow() {
@@ -36,3 +36,5 @@ function SlideShow(n) {
 
   slides[slidePosition-1].style.display = "block";
 } 
+
+//  window.location.href= "login.html"
