@@ -1,4 +1,4 @@
-var urlEnvio = 'http://localhost:8080/pessoa/inclui';
+var urlEnvio = 'https://7281-189-8-4-21.ngrok.io/pessoa/inclui';
 
 var nome = '';
 var cpf = '';
@@ -18,7 +18,8 @@ function cadastrar(){
     fetch(urlEnvio, {
         method: "POST",
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer${localStorage.token}`
         },
         body: JSON.stringify({
             nome: nome.value,

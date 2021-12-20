@@ -8,6 +8,7 @@ fetch(url, {
         method: "GET",
         headers: {
             "Content-type": "application/json",
+            "Authorization":  `Bearer${localstoragetoken}`,
         }
     })
     .then(res => res.json())
