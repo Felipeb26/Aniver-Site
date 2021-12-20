@@ -43,7 +43,7 @@
           <span class="respDado">cpf</span><br>
       </div>
       <label class="form-control meuDelete" for="apaga">Deletar Usuario</label>
-      <button type="submit" class="enviar" name="apaga" id="apaga" onclick="respoDelete()"></button>
+      <button type="submit" class="enviar" name="apaga" id="apaga" onclick="doDelete()"></button>
   </div>
       
 <div class="card cardAltera">
@@ -69,7 +69,7 @@
       <label class="form-control arqui" for="arquivo">ESCOLHER FOTO</label>
       <input type="file" accept="image/*" onchange="loadFile(event)" name="aquivo" id="arquivo" />
       <label class="form-control Enviar" for="envio">CADASTRAR</label>
-      <button type="submit" class="enviar" name="envio" id="envio"  onclick="atualizar()"></button>
+      <button type="submit" class="enviar" name="envio" id="envio"  onclick="doAltera()"></button>
       <img class="prevImg" id="imgPrev" />
       </form>
     </div>

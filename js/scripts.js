@@ -1,16 +1,18 @@
-var link = 'localhost:8080/login'
+var link = 'http://localhost:8080/login'
+
+var raw = JSON.stringify({
+    "email": "felipeb2silva@gmail.com",
+    "senha": "felipe2001"
+  });
 
 const RecebeToken = () => {
-    fetch(url, {
+    fetch(link, {
             method: 'POST',
             mode: 'cors',
             headers: {
-                'Accept': '*/*',
-                'Content-Type': 'application/json',
+                'Content-Type': 'application/json'
             },
-            body: `{
-                "chave":"dGVzdGVAZ3J1cG9tdWx0aXBsaWNhLmNvbS5icjoxMjM0"
-            }`,
+            body: raw
         })
         .then(response => {
             if (response.ok) {
@@ -25,7 +27,7 @@ const RecebeToken = () => {
 };
 
 const Aniversariantes = () =>{
-    fetch(urlPessoa)
+    fetch(link)
     .then((response) =>{
         localStorage.token();
         if(!response.ok) throw new Error()
@@ -39,5 +41,4 @@ const Aniversariantes = () =>{
         console.error(error.message)
     })
 }
-
 const RefreshToken = setInterval(RecebeToken, 15*60*1000, true);

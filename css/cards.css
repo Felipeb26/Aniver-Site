@@ -17,12 +17,12 @@
     margin: 10px;
     border-radius: 0.5rem;
     flex-direction: column-reverse;
-    background-color: rgba(39, 37, 37, 0.747);
+    background-color: rgba(39, 37, 37, 0.61);
     box-shadow: 5px 5px 5px;
 }
 
 .Aniversariantes .pessoas:hover{
-    box-shadow: 5px rgba(255, 242, 242, 0.801);
+    filter: brightness(1.2);
 }
 
 .Aniversariantes .pessoas .imagem{
