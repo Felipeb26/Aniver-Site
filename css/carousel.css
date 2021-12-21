@@ -1,5 +1,5 @@
 .carrosel img{
-    width: 45rem;
+    width: 40rem;
     height: 30rem;
     border-radius: 10px;
     object-fit: cover;
@@ -7,13 +7,14 @@
 
 .carrosel {
     width: 15rem;
+    min-width: 5rem;
     height: 15rem;
+    min-height: 15rem;
     position: relative;
-    bottom: 0;
-    left: 30%;
     margin-top: 8rem;
+    left: 30%;
     display: flex;
-    align-items: center;
+   align-items: center;
 }
 
 .images {
