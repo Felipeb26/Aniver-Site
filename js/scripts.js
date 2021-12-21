@@ -2,7 +2,7 @@ var link = 'http://localhost:8080/login'
 
 var raw = JSON.stringify({
     "email": "felipeb2silva@gmail.com",
-    "senha": "50982861826"
+    "senha": "felipe2001"
 });
 
 const RecebeToken = () => {
@@ -41,7 +41,7 @@ const Aniversariantes = () => {
             console.error(error.message)
         })
 }
-const RefreshToken = setInterval(RecebeToken, 15 * 60 * 100, true);
+const RefreshToken = setInterval(RecebeToken, 15 * 60 * 50, true);
 
 //Cria o Dark-Mode
 const html = document.querySelector('html')

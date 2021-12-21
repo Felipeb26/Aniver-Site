@@ -48,6 +48,7 @@ input[type="file"] {
 .arqui,
 .Enviar {
     background: #1b98e0;
+    border-color: var(--corTexto);
     color: var(--corTexto);
     display: inline-block;
     font-weight: bold;
@@ -119,8 +120,13 @@ input[type="file"] {
     color: white;
 }
 
+.respDado{
+    font-size: larger;
+}
+
 .meuDelete {
     background: #1b98e0;
+    border-color: var(--corTexto);
     display: inline-block;
     cursor: pointer;
     width: 100%;

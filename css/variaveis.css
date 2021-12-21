@@ -2,9 +2,9 @@
     --corTexto: rgb(255, 255, 255, 0.774);
     --shadowTexto: black;
     --corCard: rgba(39, 37, 37, 0.589) ;
-    --firstBody:  #1b96f5;
+    --firstBody:  #3c69e1;
     --secondBody: #f7f5f5;
-    --thirdBody: #3c69e1;
+    --thirdBody: #1b96f5;
 }
 
 html[dark]{

@@ -28,7 +28,7 @@ function cadastrar() {
                 "base64": foto.files[0]
             })
         })
-        .then(response => response.text(), console.log(base64))
+        .then(response => response.text())
         .then(result => console.log(result))
         .catch(error => console.log('error', error))
 }
