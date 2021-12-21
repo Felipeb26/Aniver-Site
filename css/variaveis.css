@@ -1,0 +1,17 @@
+:root{
+    --corTexto: rgb(255, 255, 255, 0.774);
+    --shadowTexto: black;
+    --corCard: rgba(39, 37, 37, 0.65) ;
+    --firstBody:  #1b96f5;
+    --secondBody: #f7f5f5;
+    --thirdBody: #3c69e1;
+}
+
+.dark-mode:root{
+    --corTexto: black;
+    --shadowTexto: rgb(255, 255, 255, 0774);
+    --corCard: rgba(39, 37, 37, 0.61) ;
+    --firstBody: rgb(8, 33, 63);
+    --secondBody: rgb(66, 70, 83);
+    --thirdBody: rgb(84, 123, 146) ;
+}

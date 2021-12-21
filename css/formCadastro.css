@@ -1,5 +1,5 @@
 .cardCadastro {
-    background: rgba(39, 37, 37, 0.61);
+    background: var(--corCard);
     box-shadow: 5px 5px 5px;
     margin: 1.5rem 1rem 0 1rem;
     width: 50rem;
@@ -30,7 +30,7 @@
 
 #texto {
     display: block;
-    color: #fff;
+    color: var(--corTexto);
     font-style: italic;
     font-weight: bold;
     font-size: 1.5rem;
@@ -44,7 +44,7 @@ input[type="file"] {
 .arqui,
 .Enviar {
     background: #1b98e0;
-    color: #ffffff;
+    color: var(--corTexto);
     display: inline-block;
     font-weight: bold;
     cursor: pointer;
@@ -54,7 +54,7 @@ input[type="file"] {
 .arqui:hover,
 .Enviar:hover {
     color: #1b98e0;
-    background-color: #ffffffcc;
+    background-color: var(--corTexto);
     border-color: #1b98e0;
 }
 

@@ -6,16 +6,6 @@
 
 body {
     user-select: none;
-    background: linear-gradient(18deg, rgb(27, 150, 245) 6%, rgb(247, 245, 245) 020%, rgb(27, 122, 224) 062%, rgb(60, 105, 225) 100%);
+    background: linear-gradient(225deg, var(--firstBody) 0%,var(--secondBody) 80%, var(--thirdBody)100%);
     background-attachment: fixed;
-}
-
-.rodape {
-    background-color: #1B98E0;
-    color: white;
-    text-align: center;
-}
-
-.rodape .container {
-    padding-top: 40px;
 }

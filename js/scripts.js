@@ -42,3 +42,11 @@ const Aniversariantes = () =>{
     })
 }
 const RefreshToken = setInterval(RecebeToken, 15*60*1000, true);
+
+//Dark-Mode
+ const html = document.querySelector('html')
+ const darkMode = document.querySelector('#switch')
+
+darkMode.addEventListener('change', function(){
+    html.classList.toggle('dark-mode')
+});
