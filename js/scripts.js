@@ -2,8 +2,8 @@ var link = 'http://localhost:8080/login'
 
 var raw = JSON.stringify({
     "email": "felipeb2silva@gmail.com",
-    "senha": "felipe2001"
-  });
+    "senha": "50982861826"
+});
 
 const RecebeToken = () => {
     fetch(link, {
@@ -26,27 +26,43 @@ const RecebeToken = () => {
         })
 };
 
-const Aniversariantes = () =>{
+const Aniversariantes = () => {
     fetch(link)
-    .then((response) =>{
-        localStorage.token();
-        if(!response.ok) throw new Error()
-        console.log(response.ok);
-        return response.json();
-    })
-    .then((data) =>{
-        console.log(data.nome);
-    })
-    .catch((error) =>{
-        console.error(error.message)
-    })
+        .then((response) => {
+            localStorage.token();
+            if (!response.ok) throw new Error()
+            console.log(response.ok);
+            return response.json();
+        })
+        .then((data) => {
+            console.log(data.nome);
+        })
+        .catch((error) => {
+            console.error(error.message)
+        })
 }
-const RefreshToken = setInterval(RecebeToken, 15*60*1000, true);
+const RefreshToken = setInterval(RecebeToken, 15 * 60 * 100, true);
 
-//Dark-Mode
- const html = document.querySelector('html')
- const darkMode = document.querySelector('#switch')
+//Cria o Dark-Mode
+const html = document.querySelector('html')
+const darkMode = document.querySelector('#switch')
 
-darkMode.addEventListener('change', function(){
-    html.classList.toggle('dark-mode')
-});
+document.addEventListener('DOMContentLoaded', () => {
+    const darkModeStorage = localStorage.getItem('dark-mode')
+    const html = document.querySelector('html')
+    const inputDarkMode = document.getElementById('switch')
+
+    if(darkModeStorage){
+        html.setAttribute("dark", "true")
+    }
+
+    inputDarkMode.addEventListener('change', () => {
+        if(inputDarkMode.checked){
+            html.setAttribute("dark", "true")
+            localStorage.setItem('dark-mode', true)
+        }else{
+            html.removeAttribute("dark")
+            localStorage.removeItem('dark-mode')
+        }
+   })
+})

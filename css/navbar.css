@@ -1,4 +1,4 @@
-header{
+header {
     width: 100%;
     max-width: 100%;
     height: 6rem;
@@ -10,36 +10,36 @@ header{
     padding: 30px 10px 20px 0;
 }
 
-header img{
+header img {
     width: 10rem;
 }
 
-.logo{
+.logo {
     cursor: pointer;
 }
 
-.nav_links{
+.nav_links {
     list-style: none;
 }
 
-.nav_links li{
+.nav_links li {
     display: inline-block;
     padding: 0 8px;
 }
 
-.link{
+.link {
     text-decoration: none;
     color: white;
     font-weight: bold;
 }
 
-.link:hover{
+.link:hover {
     color: #00d9ff;
     font-size: 18px;
     transition: ease-in-out 0.5s;
 }
 
-.alteraCor{
+.alteraCor {
     font-size: 1.5rem;
     text-decoration: none;
     color: white;
@@ -47,9 +47,13 @@ header img{
     cursor: pointer;
 }
 
-.alteraCor:hover{
+.alteraCor:hover {
     font-size: 1.5rem;
     text-decoration: none;
     color: white;
     font-weight: bold;
+}
+
+#switch {
+    display: none;
 }

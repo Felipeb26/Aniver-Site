@@ -48,7 +48,7 @@ input[type="file"] {
 .arqui,
 .Enviar {
     background: #1b98e0;
-    color: #ffffff;
+    color: var(--corTexto);
     display: inline-block;
     font-weight: bold;
     cursor: pointer;
@@ -58,7 +58,7 @@ input[type="file"] {
 .arqui:hover,
 .Enviar:hover {
     color: #1b98e0;
-    background-color: #ffffffcc;
+    background-color: var(--corTexto);
     border-color: #1b98e0;
 }
 
@@ -125,13 +125,13 @@ input[type="file"] {
     cursor: pointer;
     width: 100%;
     padding-left: 8rem;
-    color: #fff;
+    color: var(--corTexto);
     font-weight: bolder;
     font-size: 20px;
 }
 
 .meuDelete:hover, .arqui:hover, .Enviar:hover{
     color:#1b98e0;
-    background-color: #ffffffcc;
+    background-color: var(--corTexto);
     border-color: #1b98e0;
 }
