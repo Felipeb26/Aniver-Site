@@ -1,7 +1,7 @@
 .Aniversariantes {
     width: 100%;
     padding: 30px;
-    margin-top: 8rem;
+    margin-top: 10rem;
     position: relative;
     display: flex;
     justify-content: center;
@@ -17,7 +17,7 @@
     margin: 10px;
     border-radius: 0.5rem;
     flex-direction: column-reverse;
-    background-color: rgba(39, 37, 37, 0.61);
+    background-color: rgba(39, 37, 37, 091);
     box-shadow: 5px 5px 5px;
 }
 

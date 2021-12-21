@@ -1,0 +1,17 @@
+:root{
+    --corTexto: white;
+    --shadowTexto: black;
+    --corCard: #2725259c ;
+    --firstBody:  #1b96f5;
+    --secondBody: #f7f5f5;
+    --thirdBody: #3c69e1;
+}
+
+.dark-mode:root{
+    --corTexto: black;
+    --shadowTexto: white;
+    --corCard: #2725259c ;
+    --firstBody: rgb(8, 33, 63);
+    --secondBody: rgb(66, 70, 83);
+    --thirdBody: rgb(84, 123, 146) ;
+}
