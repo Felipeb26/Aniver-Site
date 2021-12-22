@@ -1,25 +1,27 @@
-const urlPessoa = "http://localhost:8080/pessoa/7";
+const pegaId = prompt("qual o seu id?");
+
+const urlPessoa = `http://localhost:8080/pessoa/${pegaId}`;
 let token = JSON.parse(localStorage.getItem('token'));
 
 let output = '';
 
 fetch(urlPessoa, {
-        mode: "cors",
-        method: "GET",
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
-        }
-    })
-    .then(res => res.json())
-    .then(data => cardID(data))
+    mode: "cors",
+    method: "GET",
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    }
+  })
+  .then(res => res.json())
+  .then(data => cardID(data))
 
 //funcao para criar card de pessoa 
-function cardID(item){
-    const card = document.querySelector('.alteraDeleta').innerHTML = 
+function cardID(item) {
+  document.querySelector('.alteraDeleta').innerHTML =
     `<div class="card cardPessoa">
     <div class="pessoa">
-      <img src="./img/zaraki.jpg" alt="">
+      <img loading="lazy" src="./img/zaraki.jpg" alt="">
     </div>
     <div class="card-body">
       <h4 class="dado">ID:</h4>
@@ -69,33 +71,45 @@ function cardID(item){
     </div>`
 }
 
+function doDelete() {
+  fetch(urlPessoa, {
+      method: "delete",
+      mode: "cors",
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    })
+    .then(res => res.json())
+    .then(data => console.log(data))
 
-
-
-
-
-
-
-
-
-function doDelete(){
-  let deleta = confirm("Caso confirme não poderá ser desfeito!")
-
-  if (deleta == true){
-      alert("usuario deletado com sucesso")
-      window.location.href = "index.html"
-  }else{
-      window.location.href = "index.html"
-  }
 }
 
-function doAltera(){
-    let deleta = confirm("Caso confirme não poderá ser desfeito!")
+function doAltera() {
+  let deleta = confirm("Caso confirme não poderá ser desfeito!")
+  var nome = document.querySelector("#nome");
+  var cpf = document.querySelector("#cpf");
+  var nascimento = document.querySelector("#nascimento");
+  var email = document.querySelector("#Email");
+  var foto = document.querySelector('#imgPrev');
   
-    if (deleta == true){
-        alert("usuario alterado com sucesso")
-        window.location.href = "index.html"
-    }else{
-        window.location.href = "index.html"
-    }
+  if (deleta == true) {
+    fetch(urlPessoa, {
+        method: "PUT",
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({
+          "nome": nome.value,
+          "cpf": cpf.value,
+          "email": email.value,
+          "nascimento": nascimento.value,
+          "base64": foto.value
+        })
+      })
+      .then(response => response.text())
+      .then(result => console.log(result))
+      .catch(error => console.log('error', error))
   }
+
+}
