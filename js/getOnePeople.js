@@ -71,10 +71,9 @@ function cardID(item) {
     </div>`
 }
 
-function doDelete() {
+const doDelete = () => {
   fetch(urlPessoa, {
       method: 'DELETE',
-      mode: "cors",
       headers: {
         "Authorization": `Bearer ${token}`
       }
