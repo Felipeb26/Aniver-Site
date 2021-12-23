@@ -73,7 +73,7 @@ function cardID(item) {
 
 function doDelete() {
   fetch(urlPessoa, {
-      method: "delete",
+      method: "DELETE",
       mode: "cors",
       headers: {
         'Authorization': `Bearer ${token}`
@@ -94,6 +94,7 @@ function doAltera() {
   
   if (deleta == true) {
     fetch(urlPessoa, {
+      mode: "cors",
         method: "PUT",
         headers: {
           'Content-Type': 'application/json',
@@ -107,9 +108,9 @@ function doAltera() {
           "base64": foto.value
         })
       })
-      .then(response => response.text())
-      .then(result => console.log(result))
-      .catch(error => console.log('error', error))
+      .then(res => res.json(res))
+      .then(data => console.log(data))
+      .catch(err => console.log(err))
   }
 
 }

@@ -8,9 +8,6 @@ function cadastrar() {
     var email = document.querySelector("#Email");
     var foto = document.querySelector('#imgPrev');
 
-    const data = new FormData();
-    data.append(foto.files[0]);
-
     fetch(urlEnvio, {
             method: "POST",
             headers: {
@@ -22,11 +19,11 @@ function cadastrar() {
                 "cpf": cpf.value,
                 "email": email.value,
                 "nascimento": nascimento.value,
-                "base64": foto
+                "base64": foto.value
             })
         })
         .then(response => response.text())
-        .then(result => console.log(result))
+        .then(result => alert(result))
         .catch(error => console.log('error', error))
 }
 
