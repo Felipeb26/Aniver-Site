@@ -83,3 +83,15 @@ input[type="file"] {
     border-radius: 5px;
     font-size: 1.3rem;
 }
+
+.cardCadastro, .imagemBolo{
+    display: inline-block;
+    justify-content: space-around;
+}
+
+.imagemBolo{
+    margin-top: -40rem;
+    margin-right: 10rem;
+    display: flex;
+    justify-content: end;
+}

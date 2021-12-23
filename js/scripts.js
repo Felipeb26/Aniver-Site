@@ -41,7 +41,7 @@ const Aniversariantes = () => {
             console.error(error.message)
         })
 }
-const RefreshToken = setInterval(RecebeToken, 15 * 60 * 50, true);
+const RefreshToken = setInterval(RecebeToken, 15 * 60 * 100, true);
 
 //Cria o Dark-Mode
 const html = document.querySelector('html')
