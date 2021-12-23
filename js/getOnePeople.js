@@ -1,4 +1,4 @@
-const urlPessoa = "http://localhost:8080/pessoa/7";
+const urlPessoa = "http://localhost:8080/pessoa/49";
 let token = JSON.parse(localStorage.getItem('token'));
 
 let output = '';
@@ -69,23 +69,23 @@ function cardID(item){
     </div>`
 }
 
-
-
-
-
-
-
-
-
-
 function doDelete(){
   let deleta = confirm("Caso confirme não poderá ser desfeito!")
-
   if (deleta == true){
-      alert("usuario deletado com sucesso")
-      window.location.href = "index.html"
+      fetch(urlPessoa,{
+        mode: "cors",
+        method: "DELETE",
+        headers:{
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        }
+      })
+      .then(response => response.text())
+      .then(result => console.log(result))
+      .catch(err => console.log(err))
+      // window.location.href = "index.html"
   }else{
-      window.location.href = "index.html"
+      // window.location.href = "index.html"
   }
 }
 
