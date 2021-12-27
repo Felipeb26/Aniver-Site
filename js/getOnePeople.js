@@ -73,15 +73,14 @@ function cardID(item) {
 
 function doDelete() {
   fetch(urlPessoa, {
-      method: "DELETE",
+      method: 'DELETE',
       mode: "cors",
       headers: {
-        'Authorization': `Bearer ${token}`
+        "Authorization": `Bearer ${token}`
       }
     })
     .then(res => res.json())
-    .then(data => console.log(data))
-
+    .catch(err => console.log(err.message))
 }
 
 function doAltera() {
@@ -93,7 +92,7 @@ function doAltera() {
   var foto = document.querySelector('#imgPrev');
   
   if (deleta == true) {
-    fetch(urlPessoa, {
+    fetch("http://localhost:8080/pessoa/34", {
       mode: "cors",
         method: "PUT",
         headers: {
@@ -108,9 +107,14 @@ function doAltera() {
           "base64": foto.value
         })
       })
-      .then(res => res.json(res))
-      .then(data => console.log(data))
-      .catch(err => console.log(err))
+      .then(response => {
+        if(!response.ok){
+          window.location.href = 'index.html'
+        }
+      })
+      .catch(error => console.log('error', error))
+  }else{
+    window.location.href = 'index.html'
   }
 
 }

@@ -1,4 +1,4 @@
-const cards = document.querySelector('.Aniversariantes');
+const card = document.querySelector('.Aniversariantes')
 let output = '';
 
 const url = "http://localhost:8080/pessoa/";
@@ -13,12 +13,9 @@ fetch(url, {
         }
     })
     .then(res => res.json())
-    .then(data => criaCard(data))
-
- const criaCard = (itens) =>{
-    itens.forEach (item =>{
-     output +=
-    `<div class="pessoas">
+    .then(data => {data.forEach(item => {
+        output +=
+        `<div class="pessoas">
         <div class="imagem">
             <img loading="lazy" src="./img/yamamoto.png" alt="">
         </div>
@@ -32,8 +29,7 @@ fetch(url, {
             <h5 class="dado">nasceu:</h5>
             <span class="respDado">${item.nascimento}</span>
         </div>
-    </div>`;
-            cards.innerHTML = output;
-            
-    })
-    };
+    </div>`;   
+    }),
+    card.innerHTML= output
+})
