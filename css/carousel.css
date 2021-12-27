@@ -12,7 +12,7 @@
     min-height: 15rem;
     position: relative;
     margin-top: 8rem;
-    left: 30%;
+    left: 25%;
     display: flex;
    align-items: center;
 }
@@ -48,7 +48,7 @@
     text-align: center;
     margin: 0rem;
     font-size: 3rem;
-    color: var(--corTexto);
-    text-shadow: 3px 3px 3px var(--shadowTexto);
+    color: var(--shadowTexto);
+    text-shadow: 3px 3px 3px var(--corTexto);
     font-family: 'Lucida Sans';
 }

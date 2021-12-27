@@ -1,8 +1,10 @@
-var loadFile = function(event) {
+var base64;
+
+const loadFile = function(event) {
     var reader = new FileReader();
     reader.onload = function(){
-      var output = document.getElementById('imgPrev');
-      output.src = reader.result;
+      var foto = document.getElementById('imgPrev');
+      foto.src = reader.result;
     };
     reader.readAsDataURL(event.target.files[0]);
   };

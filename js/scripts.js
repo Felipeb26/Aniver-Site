@@ -22,7 +22,7 @@ const RecebeToken = () => {
             }
         }).then(data => {
             localStorage.setItem('token',
-                JSON.stringify(data));
+                (data));
         })
 };
 
