@@ -1,11 +1,22 @@
-const pegaId = prompt("qual o seu id?");
-
-const urlPessoa = `http://localhost:8080/pessoa/${pegaId}`;
+const body = document.querySelector('body')
 let token = localStorage.getItem('token');
-
 let output = '';
 
-fetch(urlPessoa, {
+const url = 'http://localhost:8080/pessoa/';
+
+var nome = document.querySelector("#nome");
+var cpf = document.querySelector("#cpf");
+var nascimento = document.querySelector("#nascimento");
+var email = document.querySelector("#Email");
+var foto = document.querySelector('#imgPrev');
+
+
+
+body.onload = () =>{
+  const pegaId = prompt("qual o seu id?");
+  const urlPessoa = url+pegaId;
+  if(!pegaId == false){
+  fetch(urlPessoa, {
     mode: "cors",
     method: "GET",
     headers: {
@@ -15,7 +26,10 @@ fetch(urlPessoa, {
   })
   .then(res => res.json())
   .then(data => cardID(data))
-
+}else{
+  window.location.href = 'index.html'
+}
+}
 //funcao para criar card de pessoa 
 function cardID(item) {
   document.querySelector('.alteraDeleta').innerHTML =
@@ -72,27 +86,31 @@ function cardID(item) {
 }
 
 const doDelete = () => {
-  fetch(urlPessoa, {
+  let idDEL = prompt("confirme seu cpf completo!")
+  let deleta = confirm("Caso continue não poderá ser desfeito.")
+  if(deleta == true){
+  fetch(url+idDEL, {
       method: 'DELETE',
       headers: {
         "Authorization": `Bearer ${token}`
       }
     })
-    .then(res => res.json())
-    .catch(err => console.log(err.message))
+    .then(response => {
+      if(response.status == 200){
+        alert("usuario deletado com sucesso")
+        window.location.href = 'index.html'
+      }})
+  } else {
+      window.location.href = 'index.html'
+    }
 }
 
 function doAltera() {
   let deleta = confirm("Caso confirme não poderá ser desfeito!")
-  var nome = document.querySelector("#nome");
-  var cpf = document.querySelector("#cpf");
-  var nascimento = document.querySelector("#nascimento");
-  var email = document.querySelector("#Email");
-  var foto = document.querySelector('#imgPrev');
-  
+
   if (deleta == true) {
-    fetch("http://localhost:8080/pessoa/34", {
-      mode: "cors",
+    fetch(urlPessoa, {
+        mode: "cors",
         method: "PUT",
         headers: {
           'Content-Type': 'application/json',
@@ -107,12 +125,12 @@ function doAltera() {
         })
       })
       .then(response => {
-        if(!response.ok){
+        if (!response.ok) {
           window.location.href = 'index.html'
         }
       })
       .catch(error => console.log('error', error))
-  }else{
+  } else {
     window.location.href = 'index.html'
   }
 

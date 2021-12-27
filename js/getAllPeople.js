@@ -1,5 +1,5 @@
 const cards = document.querySelector('.Aniversariantes');
-const carrosel = document.querySelector('.Back');
+const carrosel = document.querySelector('.imageCarrosel');
 
 let output = '';
 let telaCarrosel = '';
@@ -16,7 +16,11 @@ fetch(url, {
         }
     })
     .then(res => res.json())
-    .then(data => {data.forEach(item => {
+    .then(data => criaCard(data))
+
+
+const criaCard = (itens) => {
+    itens.forEach(item =>{
         output +=
         `<div class="pessoas">
         <div class="imagem">
@@ -33,11 +37,11 @@ fetch(url, {
             <span class="respDado">${item.nascimento}</span>
         </div>
     </div>`;
-            cards.innerHTML = output;
-            
+            cards.innerHTML = output;  
     })
-});
+}
 
+//adiciona imagens ao carrosel
 fetch(url, {
     mode: "cors",
     method: "GET",
@@ -47,14 +51,17 @@ fetch(url, {
     }
 })
 .then(res => res.json())
-.then(data => imgCarrosel(data))
+.then(data => {if(data.status == 200){
+    addCarrosel(data)
+    }
+})
 
-const imgCarrosel = (fotos) =>{
-    fotos.forEach (foto =>{
-     telaCarrosel +=
+const addCarrosel = (fotos) =>{
+    fotos.forEach(foto =>{
+    telaCarrosel +=
     `<div class="images">
         <img loading="lazy" src="${foto.base64}">
     </div>`;
-    carrosel.innerHTML = telaCarrosel;        
+    carrosel.innerHTML = telaCarrosel;  
     })
-};
+}

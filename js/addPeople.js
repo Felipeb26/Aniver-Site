@@ -22,7 +22,9 @@ function cadastrar() {
                 "base64": foto.src
             })
         })
-        .then(response => response.text())
-        .then(result => alert(result))
-        .catch(error => console.log('error', error))
+        .then(response => {
+            if(response.status == 201){
+                alert("usuario cadastrado com sucesso")
+                window.location.href = 'index.html'
+            }})
 }

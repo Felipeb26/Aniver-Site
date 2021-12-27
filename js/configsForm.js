@@ -1,5 +1,3 @@
-var base64;
-
 const loadFile = function(event) {
     var reader = new FileReader();
     reader.onload = function(){
