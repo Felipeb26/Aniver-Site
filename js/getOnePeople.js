@@ -1,7 +1,7 @@
 const pegaId = prompt("qual o seu id?");
 
 const urlPessoa = `http://localhost:8080/pessoa/${pegaId}`;
-let token = JSON.parse(localStorage.getItem('token'));
+let token = localStorage.getItem('token');
 
 let output = '';
 
@@ -21,7 +21,7 @@ function cardID(item) {
   document.querySelector('.alteraDeleta').innerHTML =
     `<div class="card cardPessoa">
     <div class="pessoa">
-      <img loading="lazy" src="./img/zaraki.jpg" alt="">
+      <img loading="lazy" src="${item.base64}" alt="">
     </div>
     <div class="card-body">
       <h4 class="dado">ID:</h4>
@@ -103,7 +103,7 @@ function doAltera() {
           "cpf": cpf.value,
           "email": email.value,
           "nascimento": nascimento.value,
-          "base64": foto.value
+          "base64": foto.src
         })
       })
       .then(response => response.text())

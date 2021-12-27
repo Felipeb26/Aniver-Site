@@ -1,5 +1,5 @@
 var urlEnvio = 'http://localhost:8080/pessoa/inclui';
-let token = JSON.parse(localStorage.getItem('token'));
+let token = localStorage.getItem('token');
 
 function cadastrar() {
     var nome = document.querySelector("#nome");
@@ -7,9 +7,6 @@ function cadastrar() {
     var nascimento = document.querySelector("#nascimento");
     var email = document.querySelector("#Email");
     var foto = document.querySelector('#imgPrev');
-
-    const data = new FormData();
-    data.append(foto.files[0]);
 
     fetch(urlEnvio, {
             method: "POST",
@@ -22,20 +19,10 @@ function cadastrar() {
                 "cpf": cpf.value,
                 "email": email.value,
                 "nascimento": nascimento.value,
-                "base64": foto
+                "base64": foto.src
             })
         })
         .then(response => response.text())
         .then(result => console.log(result))
         .catch(error => console.log('error', error))
-}
-
-function login(){
-    let loga = confirm("Informe o id ou o email completo!")
-
-    if(loga == true){
-        window.location.href = "login.html"
-    }else{
-        window.location.href = "cadastro.html"
-    }
 }
