@@ -20,7 +20,7 @@ fetch(url, {
 
 const criaCard = (itens) => {
     itens.forEach(item =>{
-        if(item.base64 == null){
+        if( item.base64 == null){
         output +=
         `<div class="pessoas">
         <div class="imagem">
@@ -72,12 +72,13 @@ fetch(url, {
 
 const addCarrosel = (fotos) =>{
     fotos.forEach(foto  =>{
-        if(foto.base64 == null){
+        if(foto.base64 == null || " "){
     telaCarrosel +=
     `<div class="images">
-        <img loading="lazy" src="./img/usuario.png>
+        <img loading="lazy" src="./img/usuario.png">
     </div>`;  
-    }else{
+    }
+    else{
         telaCarrosel +=
     `<div class="images">
         <img loading="lazy" src=${foto.base64}">

@@ -9,3 +9,21 @@ body {
     background: linear-gradient(225deg, var(--firstBody) 0%,var(--secondBody) 80%, var(--thirdBody)100%);
     background-attachment: fixed;
 }
+
+.swal-modal {
+    background-color: rgba(39, 37, 37, 0.938);
+    box-shadow: 3px 3px var(--corTexto);
+  }
+
+  .swal-text {
+    margin: 0px;
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 28px;
+  }
+
+  .swal-button{
+    color: black;
+    background-color: #1b96f5;
+    border: var(--corTexto);
+  }
