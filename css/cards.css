@@ -35,7 +35,7 @@
 
 .Aniversariantes .pessoas .imagem img{
     height: 10.5rem;
-    max-width: 100%;
+    width: 100%;
 }
 .dado, .respDado{
     display: inline-block;
