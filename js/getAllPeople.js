@@ -24,7 +24,7 @@ const criaCard = (itens) => {
         output +=
         `<div class="pessoas">
         <div class="imagem">
-            <img loading="lazy" src="./img/zaraki.jpg" alt="">
+            <img loading="lazy" src="./img/yamamoto.png" alt="">
         </div>
         <div class="dados">
             <h5 class="dado">id:</h5>

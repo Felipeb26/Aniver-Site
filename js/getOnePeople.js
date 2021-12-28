@@ -24,7 +24,7 @@ body.onload = () =>{
       'Authorization': `Bearer ${token}`
     }
   })
-  .then(res => res.json())
+  .then(response => response.json())
   .then(data => cardID(data))
 }else{
   window.location.href = 'index.html'
@@ -105,7 +105,6 @@ function cardID(item) {
     <label class="form-control meuDelete" for="apaga">Deletar Usuario</label>
     <button type="submit" class="enviar" name="apaga" id="apaga" onclick="doDelete()"></button>
   </div>
-  
   <div class="card cardAltera">
       <div class="meuForm">
         <div class="envio">
