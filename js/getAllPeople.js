@@ -18,9 +18,26 @@ fetch(url, {
     .then(res => res.json())
     .then(data => criaCard(data))
 
-
 const criaCard = (itens) => {
     itens.forEach(item =>{
+        if(item.base64 == null){
+        output +=
+        `<div class="pessoas">
+        <div class="imagem">
+            <img loading="lazy" src="./img/zaraki.jpg" alt="">
+        </div>
+        <div class="dados">
+            <h5 class="dado">id:</h5>
+            <span class="respDado">${item.id}</span><br>
+            <h5 class="dado">nome:</h5>
+            <span class="respDado">${item.nome}</span><br>
+            <h5>email:</h5>
+            <span>${item.email}</span><br>
+            <h5 class="dado">nasceu:</h5>
+            <span class="respDado">${item.nascimento}</span>
+        </div>
+    </div>`;
+    }else{
         output +=
         `<div class="pessoas">
         <div class="imagem">
@@ -37,8 +54,8 @@ const criaCard = (itens) => {
             <span class="respDado">${item.nascimento}</span>
         </div>
     </div>`;
-            cards.innerHTML = output;  
-    })
+    }})
+    cards.innerHTML = output;
 }
 
 //adiciona imagens ao carrosel
@@ -51,17 +68,20 @@ fetch(url, {
     }
 })
 .then(res => res.json())
-.then(data => {if(data.status == 200){
-    addCarrosel(data)
-    }
-})
+.then(data => addCarrosel(data))
 
 const addCarrosel = (fotos) =>{
-    fotos.forEach(foto =>{
+    fotos.forEach(foto  =>{
+        if(foto.base64 == null){
     telaCarrosel +=
     `<div class="images">
-        <img loading="lazy" src="${foto.base64}">
-    </div>`;
-    carrosel.innerHTML = telaCarrosel;  
-    })
+        <img loading="lazy" src="./img/ZarakiBase.png">
+    </div>`;  
+    }else{
+        telaCarrosel +=
+    `<div class="images">
+        <img loading="lazy" ng-src=${foto.base64}">
+    </div>`; 
+    }})
+    carrosel.innerHTML = telaCarrosel;
 }
