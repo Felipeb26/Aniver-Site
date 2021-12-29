@@ -7,7 +7,7 @@ let telaCarrosel = '';
 const url = "http://localhost:8080/pessoa/";
 let token = localStorage.getItem('token');
 
-fetch(url, {
+async = fetch(url, {
         mode: "cors",
         method: "GET",
         headers: {
@@ -17,14 +17,15 @@ fetch(url, {
     })
     .then(res => res.json())
     .then(data => criaCard(data))
+    .catch(erro => console.log(erro))
 
 const criaCard = (itens) => {
     itens.forEach(item =>{
-        if(item.base64 == null){
+        if( item.base64 == null){
         output +=
         `<div class="pessoas">
         <div class="imagem">
-            <img loading="lazy" src="./img/yamamoto.png" alt="">
+            <img loading="lazy" src="./img/user.png" alt="">
         </div>
         <div class="dados">
             <h5 class="dado">id:</h5>
@@ -69,18 +70,20 @@ fetch(url, {
 })
 .then(res => res.json())
 .then(data => addCarrosel(data))
+.catch(erro => console.log(erro))
 
 const addCarrosel = (fotos) =>{
     fotos.forEach(foto  =>{
         if(foto.base64 == null){
     telaCarrosel +=
     `<div class="images">
-        <img loading="lazy" src="./img/ZarakiBase.png">
+        <img loading="lazy" src="./img/usuario.png">
     </div>`;  
-    }else{
+    }
+    else{
         telaCarrosel +=
     `<div class="images">
-        <img loading="lazy" ng-src=${foto.base64}">
+        <img loading="lazy" src="${foto.base64}">
     </div>`; 
     }})
     carrosel.innerHTML = telaCarrosel;

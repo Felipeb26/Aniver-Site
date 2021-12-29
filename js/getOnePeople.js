@@ -26,6 +26,7 @@ body.onload = () =>{
   })
   .then(response => response.json())
   .then(data => cardID(data))
+  .catch(erro => console.log(erro))
 }else{
   window.location.href = 'index.html'
 }
@@ -36,7 +37,7 @@ function cardID(item) {
     document.querySelector('.alteraDeleta').innerHTML =
     `<div class="card cardPessoa">
     <div class="pessoa">
-      <img loading="lazy" src="./img/yamamoto.png" alt="">
+      <img loading="lazy" src="./img/user.png" alt="">
     </div>
     <div class="card-body">
       <h4 class="dado">ID:</h4>
@@ -59,15 +60,14 @@ function cardID(item) {
         <div class="envio">
           <div class="dados">
             <label>Nome</label><br>
-            <input minlength="1" maxlength="50" type="text" id="nome" placeholder="${item.nome}" autocomplete="off"><br>
+            <input minlength="1" maxlength="50" type="text" id="nome" placeholder="${item.nome}" autocomplete="off" required><br>
             <label>CPF</label><br>
-            <input minlength="11" maxlength="14" type="text" id="cpf" autocomplete="off" placeholder="${item.cpf}" onkeydown="mascaraCpf()"><br>
+            <input minlength="11" maxlength="14" type="text" id="cpf" autocomplete="off" placeholder="${item.cpf}" onkeydown="mascaraCpf()" required><br>
             <label>Data de Nascimento</label><br>
-            <input type="date" id="nascimento" placeholder="${item.nascimento}" autocomplete="off">
+            <input type="date" id="nascimento" autocomplete="off"required>
             <div id="validaEmail" action="#">
               <label>Email</label><br>
-              <input type="email" id="Email" class="Email" placeholder="${item.email}" autocomplete="off"
-                onkeydown="validation()">
+              <input type="email" id="Email" class="Email" placeholder="${item.email}"autocomplete="off" onkeydown="validation()" required>
               <span id="texto"></span>
             </div>
           </div>
@@ -149,19 +149,27 @@ const doDelete = () => {
     })
     .then(response => {
       if(response.status == 200){
-        alert("usuario deletado com sucesso")
-        window.location.href = 'index.html'
+        swal({
+          title: "Muito Bem!",
+          text: "Usuario deletado com sucesso!",
+          icon: "success",
+          button: "ok",
+          closeOnClickOutside : false ,
+          timer: 8000,
+        });
+        // window.location.href = 'index.html'
       }})
+      .catch(erro => console.log(erro))
   } else {
       window.location.href = 'index.html'
     }
 }
 
 function doAltera() {
-  let deleta = confirm("Caso confirme não poderá ser desfeito!")
-
-  if (deleta == true) {
-    fetch(urlPessoa, {
+  let getId = prompt("Informe seu cpf completo")
+  let altera = confirm("Caso confirme não poderá ser desfeito!")
+  if (altera == true) {
+    fetch(url+getId, {
         mode: "cors",
         method: "PUT",
         headers: {
@@ -178,12 +186,12 @@ function doAltera() {
       })
       .then(response => {
         if (!response.ok) {
-          window.location.href = 'index.html'
+          // window.location.href = 'index.html'
         }
       })
-      .catch(error => console.log('error', error))
+      .catch(erro => console.log(erro))
   } else {
-    window.location.href = 'index.html'
+    // window.location.href = 'index.html'
   }
 
 }
