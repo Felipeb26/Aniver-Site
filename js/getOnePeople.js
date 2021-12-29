@@ -22,9 +22,22 @@ body.onload = () => {
           'Authorization': `Bearer ${token}`
         }
       })
-      .then(response => response.json())
-      .then(data => cardID(data))
-      .catch(erro => console.log(erro))
+      .then(response => {
+        if(response.status == 200){
+          response.json()
+          .then(data => cardID(data))
+          .catch(erro => console.log(erro))
+        }else{
+          swal.fire({
+            title: "ERRO",
+            text: "Usuario não existe ou não encontrado",
+            confirmButtonText: "ok"
+          }).then((result) => {
+            if(result.isConfirmed){
+            window.location.href = 'index.html'
+            }})
+        }
+      })
   } else {
     window.location.href = 'index.html'
   }
@@ -161,11 +174,13 @@ const doDelete = () => {
                 title: "Muito Bem!",
                 text: "Usuario deletado com sucesso!",
                 icon: "success",
-                timer: 5000,
+                button: "ok"
               });
             }
           })
-          .catch(erro => console.log(erro))
+          if (result.isConfirmed) {
+            window.location.href = 'index.html'
+          }
       } else if (result.dismiss === Swal.DismissReason.cancel) {
         swal.fire(
           'Cancelled',
@@ -222,14 +237,13 @@ const doAltera = () => {
           }else{swal.fire({
               title: "houve algum erro!",
               text: "tente novamente!",
-              icon: "error",
-              button: "ok",
+              icon: "error"
             })}
         })
         .catch(erro => console.log(erro))
     } else if (result.dismiss) {
       fetch(url+id, {
-          method: "POST",
+          method: "PUT",
           headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${token}`
@@ -247,8 +261,7 @@ const doAltera = () => {
             swal.fire({
               title: "Muito Bem!",
               text: "Usuario alterado com sucesso!",
-              icon: "success",
-              button: "ok",
+              icon: "success"
             }).then((result => {
               if (result.isConfirmed) {
                 window.location.href = 'index.html'
@@ -258,8 +271,7 @@ const doAltera = () => {
             swal.fire({
               title: "houve algum erro!",
               text: "tente novamente!",
-              icon: "error",
-              button: "ok",
+              icon: "error"
             })
           }
         })
