@@ -8,37 +8,15 @@ var email = document.querySelector("#Email");
 var foto = document.querySelector('#imgPrev');
 
 function cadastrar() {
-    const addImg = confirm("Clique cancelar para deixar uma foto padrão.")
-    if(addImg == true){
-    fetch(urlEnvio, {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            },
-            body: JSON.stringify({
-                "nome": nome.value,
-                "cpf": cpf.value,
-                "email": email.value,
-                "nascimento": nascimento.value,
-                "base64": foto.src
-            })
-        })
-        .then(response => {
-            if(response.status == 201){
-                swal({
-                    title: "Muito Bem!",
-                    text: "Usuario cadastrado com sucesso!",
-                    icon: "success",
-                    button: "ok",
-                    closeOnClickOutside : false ,
-                    timer: 8000,
-                  })
-                // window.location.href='index.html'
-            }})
-            .catch(erro => console.log(erro))
-        }else{
-            fetch(urlEnvio, {
+    swal.fire({
+        title: 'Escolha a foto',
+        text: "Gostaria de continuar com a escolhida ou a do sistema",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'CONTINUAR!',
+        cancelButtonText: 'SISTEMA',
+      }).then((result) =>{if (result.isConfirmed) {
+        fetch(urlEnvio, {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',
@@ -48,22 +26,56 @@ function cadastrar() {
                     "nome": nome.value,
                     "cpf": cpf.value,
                     "email": email.value,
-                    "nascimento": nascimento.value
+                    "nascimento": nascimento.value,
+                    "base64": foto.src
                 })
             })
             .then(response => {
-                if(response.status == 201){
-                    swal({
+                if (response.status == 201) {
+                    swal.fire({
                         title: "Muito Bem!",
                         text: "Usuario cadastrado com sucesso!",
                         icon: "success",
                         button: "ok",
-                        closeOnClickOutside : false ,
-                        timer: 8000,
-                      });
-                    // window.location.href='index.html'
-                }})
+                        closeOnClickOutside: false,
+                    }).then((result =>{
+                        if(result.isConfirmed){
+                            window.location.href='index.html'
+                        }
+                    }));
+                }
+            })
+            .catch(erro => console.log(erro))
+        }else if(result.dismiss){
+            fetch(urlEnvio, {
+                    method: "POST",
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify({
+                        "nome": nome.value,
+                        "cpf": cpf.value,
+                        "email": email.value,
+                        "nascimento": nascimento.value
+                    })
+                })
+                .then(response => {
+                    if (response.status == 201) {
+                        swal.fire({
+                            title: "Muito Bem!",
+                            text: "Usuario cadastrado com sucesso!",
+                            icon: "success",
+                            button: "ok",
+                            closeOnClickOutside: false,
+                        }).then((result =>{
+                            if(result.isConfirmed){
+                                window.location.href='index.html'
+                            }
+                        }));
+                    }
+                })
                 .catch(erro => console.log(erro))
-        }
+        }})
+        
 }
-

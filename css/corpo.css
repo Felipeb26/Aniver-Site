@@ -7,10 +7,11 @@
 body {
   background: linear-gradient(225deg, var(--firstBody) 0%,var(--secondBody) 80%, var(--thirdBody)100%);
   background-attachment: fixed;
+  user-select: none;
 }
 
 .swal-modal {
-    background-color: rgba(39, 37, 37, 0.938);
+    background-color: rgba(66, 59, 59, 0.938);
     box-shadow: 3px 3px var(--corTexto);
   }
 
@@ -26,3 +27,18 @@ body {
     background-color: #1b96f5;
     border: var(--corTexto);
   }
+.swal2-popup{
+  background-color: var(--corCard);
+   box-shadow: 3px 3px var(--corTexto);
+}
+.swal2-content{
+  color: white;
+}
+.swal2-title{
+  color: var(--shadowTexto);
+}
+
+.swal2-input{
+  background: white;
+  border-color: black;
+}

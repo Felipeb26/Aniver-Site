@@ -4,38 +4,32 @@ let output = '';
 
 const url = 'http://localhost:8080/pessoa/';
 
-var nome = document.querySelector("#nome");
-var cpf = document.querySelector("#cpf");
-var nascimento = document.querySelector("#nascimento");
-var email = document.querySelector("#Email");
-var foto = document.querySelector('#imgPrev');
 
 
-
-body.onload = () =>{
+body.onload = () => {
   const pegaId = prompt("qual o seu id?");
-  const urlPessoa = url+pegaId;
-  if(!pegaId == false){
-  fetch(urlPessoa, {
-    mode: "cors",
-    method: "GET",
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
-    }
-  })
-  .then(response => response.json())
-  .then(data => cardID(data))
-  .catch(erro => console.log(erro))
-}else{
-  window.location.href = 'index.html'
-}
+  const urlPessoa = url + pegaId;
+  if (!pegaId == false) {
+    fetch(urlPessoa, {
+        mode: "cors",
+        method: "GET",
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        }
+      })
+      .then(response => response.json())
+      .then(data => cardID(data))
+      .catch(erro => console.log(erro))
+  } else {
+    window.location.href = 'index.html'
+  }
 }
 //funcao para criar card de pessoa 
 function cardID(item) {
-  if(item.base64 == null){
+  if (item.base64 == null) {
     document.querySelector('.alteraDeleta').innerHTML =
-    `<div class="card cardPessoa">
+      `<div class="card cardPessoa">
     <div class="pessoa">
       <img loading="lazy" src="./img/user.png" alt="">
     </div>
@@ -84,9 +78,9 @@ function cardID(item) {
         </div>
       </div>
     </div>`
-  }else{
-  document.querySelector('.alteraDeleta').innerHTML =
-    `<div class="card cardPessoa">
+  } else {
+    document.querySelector('.alteraDeleta').innerHTML =
+      `<div class="card cardPessoa">
     <div class="pessoa">
       <img loading="lazy" src="${item.base64}" alt="">
     </div>
@@ -134,42 +128,67 @@ function cardID(item) {
           </form>
         </div>
       </div>
-    </div>`}
+    </div>`
+  }
 }
 
 const doDelete = () => {
-  let idDEL = prompt("confirme seu cpf completo!")
-  let deleta = confirm("Caso continue não poderá ser desfeito.")
-  if(deleta == true){
-  fetch(url+idDEL, {
-      method: 'DELETE',
-      headers: {
-        "Authorization": `Bearer ${token}`
+  let id = prompt('confirma')
+  if (!id == false) {
+    swal.fire({
+      title: 'Tem certeza?',
+      text: "Caso continue não seá possivel reverter!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'CONFIRMAR!',
+      cancelButtonText: 'CANCELAR',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(url + id, {
+            mode: 'cors',
+            method: 'DELETE',
+            headers: {
+              "Authorization": `Bearer ${token}`
+            }
+          })
+          .then(response => {
+            if (response.status == 200) {
+              swal.fire({
+                title: "Muito Bem!",
+                text: "Usuario deletado com sucesso!",
+                icon: "success",
+                timer: 5000,
+              });
+            }
+          })
+          .catch(erro => console.log(erro))
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        swal.fire(
+          'Cancelled',
+          'Usuario não foi deletado',
+          'error'
+        )
       }
     })
-    .then(response => {
-      if(response.status == 200){
-        swal({
-          title: "Muito Bem!",
-          text: "Usuario deletado com sucesso!",
-          icon: "success",
-          button: "ok",
-          closeOnClickOutside : false ,
-          timer: 8000,
-        });
-        // window.location.href = 'index.html'
-      }})
-      .catch(erro => console.log(erro))
   } else {
-      window.location.href = 'index.html'
-    }
+    swal.fire({
+      title: 'Cancelado',
+      icon: "error"
+    })
+  }
 }
 
-function doAltera() {
+const doAltera = () => {
+  var nome = document.querySelector("#nome");
+  var cpf = document.querySelector("#cpf");
+  var nascimento = document.querySelector("#nascimento");
+  var email = document.querySelector("#Email");
+  var foto = document.querySelector('#imgPrev');
+
   let getId = prompt("Informe seu cpf completo")
   let altera = confirm("Caso confirme não poderá ser desfeito!")
   if (altera == true) {
-    fetch(url+getId, {
+    fetch(url + getId, {
         mode: "cors",
         method: "PUT",
         headers: {
@@ -184,14 +203,10 @@ function doAltera() {
           "base64": foto.src
         })
       })
-      .then(response => {
-        if (!response.ok) {
-          // window.location.href = 'index.html'
-        }
-      })
+      .then(response =>console.log(response))
       .catch(erro => console.log(erro))
   } else {
-    // window.location.href = 'index.html'
+    alert('deu erro')
   }
 
 }

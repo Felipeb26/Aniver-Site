@@ -7,7 +7,7 @@ let telaCarrosel = '';
 const url = "http://localhost:8080/pessoa/";
 let token = localStorage.getItem('token');
 
-async = fetch(url, {
+fetch(url, {
         mode: "cors",
         method: "GET",
         headers: {
@@ -88,3 +88,4 @@ const addCarrosel = (fotos) =>{
     }})
     carrosel.innerHTML = telaCarrosel;
 }
+
