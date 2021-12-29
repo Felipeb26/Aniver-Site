@@ -15,38 +15,39 @@ function cadastrar() {
         showCancelButton: true,
         confirmButtonText: 'CONTINUAR!',
         cancelButtonText: 'SISTEMA',
-      }).then((result) =>{if (result.isConfirmed) {
-        fetch(urlEnvio, {
-                method: "POST",
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`
-                },
-                body: JSON.stringify({
-                    "nome": nome.value,
-                    "cpf": cpf.value,
-                    "email": email.value,
-                    "nascimento": nascimento.value,
-                    "base64": foto.src
+    }).then((result) => {
+        if (result.isConfirmed) {
+            fetch(urlEnvio, {
+                    method: "POST",
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify({
+                        "nome": nome.value,
+                        "cpf": cpf.value,
+                        "email": email.value,
+                        "nascimento": nascimento.value,
+                        "base64": foto.src
+                    })
                 })
-            })
-            .then(response => {
-                if (response.status == 201) {
-                    swal.fire({
-                        title: "Muito Bem!",
-                        text: "Usuario cadastrado com sucesso!",
-                        icon: "success",
-                        button: "ok",
-                        closeOnClickOutside: false,
-                    }).then((result =>{
-                        if(result.isConfirmed){
-                            window.location.href='index.html'
-                        }
-                    }));
-                }
-            })
-            .catch(erro => console.log(erro))
-        }else if(result.dismiss){
+                .then(response => {
+                    if (response.status == 201) {
+                        swal.fire({
+                            title: "Muito Bem!",
+                            text: "Usuario cadastrado com sucesso!",
+                            icon: "success",
+                            button: "ok",
+                            closeOnClickOutside: false,
+                        }).then((result => {
+                            if (result.isConfirmed) {
+                                window.location.href = 'index.html'
+                            }
+                        }));
+                    }
+                })
+                .catch(erro => console.log(erro))
+        } else if (result.dismiss) {
             fetch(urlEnvio, {
                     method: "POST",
                     headers: {
@@ -68,14 +69,15 @@ function cadastrar() {
                             icon: "success",
                             button: "ok",
                             closeOnClickOutside: false,
-                        }).then((result =>{
-                            if(result.isConfirmed){
-                                window.location.href='index.html'
+                        }).then((result => {
+                            if (result.isConfirmed) {
+                                window.location.href = 'index.html'
                             }
                         }));
                     }
                 })
                 .catch(erro => console.log(erro))
-        }})
-        
+        }
+    })
+
 }

@@ -1,9 +1,13 @@
+const url = 'http://localhost:8080/pessoa/';
 const body = document.querySelector('body')
 let token = localStorage.getItem('token');
 let output = '';
 
-const url = 'http://localhost:8080/pessoa/';
-
+var nome = document.querySelector("#nome");
+var cpf = document.querySelector("#cpf");
+var nascimento = document.querySelector("#nascimento");
+var email = document.querySelector("#Email");
+var foto = document.querySelector('#imgPrev');
 
 
 body.onload = () => {
@@ -54,14 +58,14 @@ function cardID(item) {
         <div class="envio">
           <div class="dados">
             <label>Nome</label><br>
-            <input minlength="1" maxlength="50" type="text" id="nome" placeholder="${item.nome}" autocomplete="off" required><br>
+            <input minlength="1" maxlength="50" type="text" id="nome" value="${item.nome}" autocomplete="off" required><br>
             <label>CPF</label><br>
-            <input minlength="11" maxlength="14" type="text" id="cpf" autocomplete="off" placeholder="${item.cpf}" onkeydown="mascaraCpf()" required><br>
+            <input minlength="11" maxlength="14" type="text" id="cpf" autocomplete="off" value="${item.cpf}" onkeydown="mascaraCpf()" required><br>
             <label>Data de Nascimento</label><br>
             <input type="date" id="nascimento" autocomplete="off"required>
             <div id="validaEmail" action="#">
               <label>Email</label><br>
-              <input type="email" id="Email" class="Email" placeholder="${item.email}"autocomplete="off" onkeydown="validation()" required>
+              <input type="email" id="Email" class="Email" value="${item.email}"autocomplete="off" onkeydown="validation()" required>
               <span id="texto"></span>
             </div>
           </div>
@@ -104,14 +108,14 @@ function cardID(item) {
         <div class="envio">
           <div class="dados">
             <label>Nome</label><br>
-            <input minlength="1" maxlength="50" type="text" id="nome" placeholder="${item.nome}" autocomplete="off"><br>
+            <input minlength="1" maxlength="50" type="text" id="nome" value="${item.nome}" autocomplete="off"><br>
             <label>CPF</label><br>
-            <input minlength="11" maxlength="14" type="text" id="cpf" autocomplete="off" placeholder="${item.cpf}" onkeydown="mascaraCpf()"><br>
+            <input minlength="11" maxlength="14" type="text" id="cpf" autocomplete="off" value="${item.cpf}" onkeydown="mascaraCpf()"><br>
             <label>Data de Nascimento</label><br>
-            <input type="date" id="nascimento" placeholder="${item.nascimento}" autocomplete="off">
+            <input type="date" id="nascimento" value="${item.nascimento}" autocomplete="off">
             <div id="validaEmail" action="#">
               <label>Email</label><br>
-              <input type="email" id="Email" class="Email" placeholder="${item.email}" autocomplete="off"
+              <input type="email" id="Email" class="Email" value="${item.email}" autocomplete="off"
                 onkeydown="validation()">
               <span id="texto"></span>
             </div>
@@ -179,34 +183,87 @@ const doDelete = () => {
 }
 
 const doAltera = () => {
-  var nome = document.querySelector("#nome");
-  var cpf = document.querySelector("#cpf");
-  var nascimento = document.querySelector("#nascimento");
-  var email = document.querySelector("#Email");
-  var foto = document.querySelector('#imgPrev');
-
-  let getId = prompt("Informe seu cpf completo")
-  let altera = confirm("Caso confirme não poderá ser desfeito!")
-  if (altera == true) {
-    fetch(url + getId, {
-        mode: "cors",
-        method: "PUT",
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
-        },
-        body: JSON.stringify({
-          "nome": nome.value,
-          "cpf": cpf.value,
-          "email": email.value,
-          "nascimento": nascimento.value,
-          "base64": foto.src
+  let id = prompt('necessario informar o id')
+  swal.fire({
+    title: 'Escolha a foto',
+    text: "Gostaria de continuar com a escolhida ou a do sistema",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'CONTINUAR!',
+    cancelButtonText: 'SISTEMA',
+  }).then((result) => {
+    if (result.isConfirmed) {
+      fetch(url+id, {
+          method: "PUT",
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          },
+          body: JSON.stringify({
+            "nome": nome.value,
+            "cpf": cpf.value,
+            "email": email.value,
+            "nascimento": nascimento.value,
+          })
         })
-      })
-      .then(response =>console.log(response))
-      .catch(erro => console.log(erro))
-  } else {
-    alert('deu erro')
-  }
-
+        .then(response => {
+          if (response.status == 200) {
+            swal.fire({
+              title: "Muito Bem!",
+              text: "Usuario alterado com sucesso!",
+              icon: "success",
+              button: "ok",
+              closeOnClickOutside: false,
+            }).then((result => {
+              if (result.isConfirmed) {
+                window.location.href = 'index.html'
+              }
+            }));
+          }else{swal.fire({
+              title: "houve algum erro!",
+              text: "tente novamente!",
+              icon: "error",
+              button: "ok",
+            })}
+        })
+        .catch(erro => console.log(erro))
+    } else if (result.dismiss) {
+      fetch(url+id, {
+          method: "POST",
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          },
+          body: JSON.stringify({
+            "nome": nome.value,
+            "cpf": cpf.value,
+            "email": email.value,
+            "nascimento": nascimento.value,
+            "base64": foto.src
+          })
+        })
+        .then(response => {
+          if (response.status == 200) {
+            swal.fire({
+              title: "Muito Bem!",
+              text: "Usuario alterado com sucesso!",
+              icon: "success",
+              button: "ok",
+            }).then((result => {
+              if (result.isConfirmed) {
+                window.location.href = 'index.html'
+              }
+            }));
+          }else{
+            swal.fire({
+              title: "houve algum erro!",
+              text: "tente novamente!",
+              icon: "error",
+              button: "ok",
+            })
+          }
+        })
+        .catch(erro => console.log(erro))
+    }
+  })
 }
