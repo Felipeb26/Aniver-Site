@@ -3,12 +3,16 @@ const body = document.querySelector('body')
 let token = localStorage.getItem('token');
 let output = '';
 
-var nome = document.querySelector("#nome");
-var cpf = document.querySelector("#cpf");
-var nascimento = document.querySelector("#nascimento");
-var email = document.querySelector("#Email");
-var foto = document.querySelector('#imgPrev');
-
+// var nome = document.querySelector("#nome");
+// var cpf = document.querySelector("#cpf");
+// var nascimento = document.querySelector("#nascimento");
+// var email = document.querySelector("#Email");
+// var foto = document.querySelector('#imgPrev');
+var nome ='';
+var cpf ='';
+var nascimento ='';
+var email ='';
+var foto ='';
 
 body.onload = () => {
   const pegaId = prompt("qual o seu id?");
@@ -29,6 +33,7 @@ body.onload = () => {
           .catch(erro => console.log(erro))
         }else{
           swal.fire({
+            icon: "error",
             title: "ERRO",
             text: "Usuario não existe ou não encontrado",
             confirmButtonText: "ok"
@@ -48,7 +53,7 @@ function cardID(item) {
     document.querySelector('.alteraDeleta').innerHTML =
       `<div class="card cardPessoa">
     <div class="pessoa">
-      <img loading="lazy" src="./img/user.png" alt="">
+      <img src="./img/user.png" alt="imagem de ${item.nome}">
     </div>
     <div class="card-body">
       <h4 class="dado">ID:</h4>
@@ -71,14 +76,14 @@ function cardID(item) {
         <div class="envio">
           <div class="dados">
             <label>Nome</label><br>
-            <input minlength="1" maxlength="50" type="text" id="nome" value="${item.nome}" autocomplete="off" required><br>
+            <input minlength="1" maxlength="50" type="text" id="nome" value="${item.nome}" autocomplete="off"><br>
             <label>CPF</label><br>
-            <input minlength="11" maxlength="14" type="text" id="cpf" autocomplete="off" value="${item.cpf}" onkeydown="mascaraCpf()" required><br>
+            <input minlength="11" maxlength="14" type="text" id="cpf" autocomplete="off" onkeydown="mascaraCpf()" value="${item.cpf}"><br>
             <label>Data de Nascimento</label><br>
-            <input type="date" id="nascimento" autocomplete="off"required>
+            <input type="date" id="nascimento" autocomplete="off" value="${item.nascimento}">
             <div id="validaEmail" action="#">
               <label>Email</label><br>
-              <input type="email" id="Email" class="Email" value="${item.email}"autocomplete="off" onkeydown="validation()" required>
+              <input type="email" id="Email" class="Email" autocomplete="off" onkeydown="validation()" value="${item.email}">
               <span id="texto"></span>
             </div>
           </div>
@@ -90,7 +95,7 @@ function cardID(item) {
           <input type="file" accept="image/*" onchange="loadFile(event)" name="aquivo" id="arquivo" />
           <label class="form-control Enviar" for="envio">ALTERAR</label>
           <button type="submit" class="enviar" name="envio" id="envio" onclick="doAltera()"></button>
-          <img class="prevImg" id="imgPrev" />
+          <img class="prevImg" id="imgPrev"/>
           </form>
         </div>
       </div>
@@ -99,7 +104,7 @@ function cardID(item) {
     document.querySelector('.alteraDeleta').innerHTML =
       `<div class="card cardPessoa">
     <div class="pessoa">
-      <img loading="lazy" src="${item.base64}" alt="">
+      <img src="${item.base64}" alt="imagem de ${item.nome}">
     </div>
     <div class="card-body">
       <h4 class="dado">ID:</h4>
@@ -121,15 +126,14 @@ function cardID(item) {
         <div class="envio">
           <div class="dados">
             <label>Nome</label><br>
-            <input minlength="1" maxlength="50" type="text" id="nome" value="${item.nome}" autocomplete="off"><br>
+            <input minlength="1" maxlength="50" type="text" id="nome" autocomplete="off" value="${item.nome}"><br>
             <label>CPF</label><br>
-            <input minlength="11" maxlength="14" type="text" id="cpf" autocomplete="off" value="${item.cpf}" onkeydown="mascaraCpf()"><br>
+            <input minlength="11" maxlength="14" type="text" id="cpf" autocomplete="off" onkeydown="mascaraCpf()" value="${item.cpf}"><br>
             <label>Data de Nascimento</label><br>
-            <input type="date" id="nascimento" value="${item.nascimento}" autocomplete="off">
+            <input type="date" id="nascimento" autocomplete="off" value="${item.nascimento}">
             <div id="validaEmail" action="#">
               <label>Email</label><br>
-              <input type="email" id="Email" class="Email" value="${item.email}" autocomplete="off"
-                onkeydown="validation()">
+              <input type="email" id="Email" class="Email" autocomplete="off" onkeydown="validation()" value="${item.email}">
               <span id="texto"></span>
             </div>
           </div>
@@ -141,7 +145,7 @@ function cardID(item) {
           <input type="file" accept="image/*" onchange="loadFile(event)" name="aquivo" id="arquivo" />
           <label class="form-control Enviar" for="envio">ALTERAR</label>
           <button type="submit" class="enviar" name="envio" id="envio" onclick="doAltera()"></button>
-          <img class="prevImg" id="imgPrev" />
+          <img class="prevImg" id="imgPrev" src="${item.base64}"/>
           </form>
         </div>
       </div>
@@ -191,7 +195,7 @@ const doDelete = () => {
     })
   } else {
     swal.fire({
-      title: 'Cancelado',
+      title: 'Cancelada deleção',
       icon: "error"
     })
   }
@@ -199,9 +203,10 @@ const doDelete = () => {
 
 const doAltera = () => {
   let id = prompt('necessario informar o id')
+  if(!id == false){
   swal.fire({
     title: 'Escolha a foto',
-    text: "Gostaria de continuar com a escolhida ou a do sistema",
+    text: "Gostaria de trocar sua pela do sistema?",
     icon: 'warning',
     showCancelButton: true,
     confirmButtonText: 'CONTINUAR!',
@@ -215,10 +220,11 @@ const doAltera = () => {
             'Authorization': `Bearer ${token}`
           },
           body: JSON.stringify({
-            "nome": nome.value,
-            "cpf": cpf.value,
-            "email": email.value,
-            "nascimento": nascimento.value,
+            "nome": nome = document.querySelector("#nome").value,
+            "cpf": cpf = document.querySelector("#cpf").value,
+            "email": email = document.querySelector("#Email").value,
+            "nascimento": nascimento = document.querySelector("#nascimento").value,
+            "base64": foto = document.querySelector("#imgPrev").src
           })
         })
         .then(response => {
@@ -249,11 +255,10 @@ const doAltera = () => {
             'Authorization': `Bearer ${token}`
           },
           body: JSON.stringify({
-            "nome": nome.value,
-            "cpf": cpf.value,
-            "email": email.value,
-            "nascimento": nascimento.value,
-            "base64": foto.src
+            "nome": nome = document.querySelector("#nome").value,
+            "cpf": cpf = document.querySelector("#cpf").value,
+            "email": email = document.querySelector("#Email").value,
+            "nascimento": nascimento = document.querySelector("#nascimento").value,
           })
         })
         .then(response => {
@@ -277,5 +282,10 @@ const doAltera = () => {
         })
         .catch(erro => console.log(erro))
     }
-  })
+  })}else {
+    swal.fire({
+      title: 'Cancelada alteração',
+      icon: "error"
+    })
+  }
 }

@@ -25,7 +25,7 @@ const criaCard = (itens) => {
         output +=
         `<div class="pessoas">
         <div class="imagem">
-            <img loading="lazy" src="./img/user.png" alt="">
+            <img src="./img/user.png" alt="imagem da${item.nome}">
         </div>
         <div class="dados">
             <h5 class="dado">id:</h5>
@@ -77,13 +77,13 @@ const addCarrosel = (fotos) =>{
         if(foto.base64 == null){
     telaCarrosel +=
     `<div class="images">
-        <img loading="lazy" src="./img/usuario.png">
+        <img src="./img/usuario.png">
     </div>`;  
     }
     else{
         telaCarrosel +=
     `<div class="images">
-        <img loading="lazy" src="${foto.base64}">
+        <img src="${foto.base64}">
     </div>`; 
     }})
     carrosel.innerHTML = telaCarrosel;

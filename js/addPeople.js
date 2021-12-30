@@ -79,5 +79,4 @@ function cadastrar() {
                 .catch(erro => console.log(erro))
         }
     })
-
 }

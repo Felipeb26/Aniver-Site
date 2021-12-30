@@ -6,9 +6,10 @@
 .cardAltera{
      background: rgba(39, 37, 37, 0.61);
      box-shadow: 5px 5px 5px;
-     margin-right: 5%;
+     margin-right: 2%;
      margin-top: 2rem;
-     height: 48rem; 
+     margin-bottom: 2rem;
+     height: 47.5rem; 
 }
 
 
@@ -102,7 +103,7 @@ input[type="file"] {
     display: inline-flex;
     background: rgba(39, 37, 37, 0.747);
     box-shadow: 5px 5px 5px;
-    margin-top: 5rem;
+    margin-top: 3rem;
     margin-left: 3rem;
     padding: 5px;
     width: 30rem;
