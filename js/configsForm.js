@@ -1,11 +1,27 @@
-const loadFile = function(event) {
-    var reader = new FileReader();
-    reader.onload = function(){
-      var foto = document.getElementById('imgPrev');
-      foto.src = reader.result;
-    };
-    reader.readAsDataURL(event.target.files[0]);
-  };
+const loadFile = () => {
+    const file = document.querySelector('#arquivo').files[0];
+    if(!file) return;
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+
+    reader.onload = function(event){
+        var foto = document.querySelector('#imgPrev');
+        foto.src = event.target.result;
+
+        foto.onload = function(e){
+          const canvas = document.createElement("canvas");
+          const MAX_WIDTH = 400;
+          const scaleSize = MAX_WIDTH / e.target.width;
+          canvas.width = MAX_WIDTH;
+          canvas.height = e.target.height * scaleSize;
+  
+          const ctx = canvas.getContext("2d");
+          ctx.drawImage(e.target, 0,0,canvas.width, canvas.height);
+          const srcEncoded = ctx.canvas.toDataURL(e.target,"image/jpeg")
+          document.querySelector("#minImage").src = srcEncoded;
+        }
+    }
+};
 
 function validation(){
     var validaEmail = document.getElementById("validaEmail");

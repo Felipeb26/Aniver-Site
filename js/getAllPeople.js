@@ -42,7 +42,7 @@ const criaCard = (itens) => {
         output +=
         `<div class="pessoas">
         <div class="imagem">
-            <img loading="lazy" src="${item.base64}" alt="">
+            <img src="${item.base64}" alt="">
         </div>
         <div class="dados">
             <h5 class="dado">id:</h5>

@@ -3,11 +3,6 @@ const body = document.querySelector('body')
 let token = localStorage.getItem('token');
 let output = '';
 
-// var nome = document.querySelector("#nome");
-// var cpf = document.querySelector("#cpf");
-// var nascimento = document.querySelector("#nascimento");
-// var email = document.querySelector("#Email");
-// var foto = document.querySelector('#imgPrev');
 var nome ='';
 var cpf ='';
 var nascimento ='';
@@ -96,6 +91,7 @@ function cardID(item) {
           <label class="form-control Enviar" for="envio">ALTERAR</label>
           <button type="submit" class="enviar" name="envio" id="envio" onclick="doAltera()"></button>
           <img class="prevImg" id="imgPrev"/>
+          <img class="compactImage" id="minImage"/>
           </form>
         </div>
       </div>
@@ -146,6 +142,7 @@ function cardID(item) {
           <label class="form-control Enviar" for="envio">ALTERAR</label>
           <button type="submit" class="enviar" name="envio" id="envio" onclick="doAltera()"></button>
           <img class="prevImg" id="imgPrev" src="${item.base64}"/>
+          <img class="compactImage" id="minImage"/>
           </form>
         </div>
       </div>
@@ -224,7 +221,7 @@ const doAltera = () => {
             "cpf": cpf = document.querySelector("#cpf").value,
             "email": email = document.querySelector("#Email").value,
             "nascimento": nascimento = document.querySelector("#nascimento").value,
-            "base64": foto = document.querySelector("#imgPrev").src
+            "base64": foto = document.querySelector("#minImage").src
           })
         })
         .then(response => {

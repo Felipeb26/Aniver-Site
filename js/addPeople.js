@@ -5,7 +5,7 @@ var nome = document.querySelector("#nome");
 var cpf = document.querySelector("#cpf");
 var nascimento = document.querySelector("#nascimento");
 var email = document.querySelector("#Email");
-var foto = document.querySelector('#imgPrev');
+var foto = document.querySelector('#minImage');
 
 function cadastrar() {
     swal.fire({

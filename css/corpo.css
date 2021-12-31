@@ -4,6 +4,14 @@
     text-decoration: none;
 }
 
+html{
+  scroll-behavior: smooth;
+}
+
+img{
+  image-rendering: optimizeQuality;
+}
+
 body {
   background: linear-gradient(225deg, var(--firstBody) 0%,var(--secondBody) 80%, var(--thirdBody)100%);
   background-attachment: fixed;
@@ -100,5 +108,9 @@ header img {
 }
 
 #switch {
+  display: none;
+}
+
+#minImage{
   display: none;
 }

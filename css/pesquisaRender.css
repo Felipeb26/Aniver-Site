@@ -1,0 +1,56 @@
+.itensPesquisa{
+    margin-top: 5rem;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#check{
+    position: absolute;
+    opacity: 0;
+}
+
+.hamburguer{
+    cursor: pointer;
+    position: relative;
+    display: block;
+    width: 30px;
+    height: 30px;
+}
+
+.hamburguer input{
+    position: absolute;
+    display: block;
+    height: 5px;
+    width: 100%;
+    border-radius: 30px;
+    background-color: rgb(202, 17, 17);
+    transition: 0.25s ease-in-out;
+}
+
+.hamburguer input:nth-child(1){
+    top: 0rem;
+}
+
+.hamburguer input:nth-child(2){
+    top: 1rem;
+}
+
+.hamburguer input:nth-child(3){
+    top: 2rem;
+}
+
+#check:checked + .hamburguer input:nth-child(1){
+    transform: rotate(-45deg);
+    top: 1rem;
+}
+
+#check:checked + .hamburguer input:nth-child(1){
+    opacity: 0;
+}
+
+#check:checked + .hamburguer input:nth-child(3){
+    transform: rotate(45deg);
+    top: 2rem;
+}
