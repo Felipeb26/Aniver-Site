@@ -1,18 +1,24 @@
-.menuHamburguer{
-    top: 50px;
+.menuHamburguer {
+    margin: 2rem 0rem 1rem 2rem;
     display: block;
 }
 
-.checkbox{
+.checkbox {
+    background-color: transparent;
+    border: none;
+    color: var(--shadowTexto);
+}
+
+#burguer {
     display: none;
 }
 
-.menu{
+.menu {
     font-size: 50px;
     cursor: pointer;
 }
 
-.Pesquisa{
+.Pesquisa {
     background: var(--corCard);
     color: var(--shadowTexto);
     border-radius: 10px;
@@ -21,29 +27,70 @@
     flex-direction: column;
 }
 
-.itemPesquisa{
+.itemPesquisa {
     width: 90%;
     display: none;
     margin: 1rem 0rem 0.5rem 1rem;
     font-size: 1.25rem;
 }
-.itemPesquisa label{
+
+.itemPesquisa label {
     cursor: pointer;
     font-size: 1.7rem;
 }
 
-.item{
+.item {
     width: 100%;
     display: none;
     margin: 1rem 0rem 0.5rem 0rem;
     font-size: 1.25rem;
 }
 
-.enviaPesquisa{
+.enviaPesquisa {
     display: none;
     margin: 1rem;
 }
 
-.menuHamburguer, .Pesquisa{
+.menuHamburguer,
+.Pesquisa, .teste{
     display: inline-flex;
+}
+
+.menu {
+    border: 2px solid var(--shadowTexto);
+    background-color: transparent;
+    color: var(--shadowTexto);
+    box-shadow: 5px 5px 5px solid var(--shadowTexto);
+}
+
+.menu:hover {
+    box-shadow: 0 0 15px var(--corCard), inset 0 0 15px var(--corCard);
+    border: 2px solid var(--corTexto);
+    color: var(--corTexto);
+}
+
+.teste{
+    float: right;
+    margin-top: 2rem;
+    margin-right: 5rem;
+}
+
+.pessoaPesquisa{
+    width: 33rem;
+    background: var(--corCard);
+    box-shadow: 5px 5px 5px var(--corTexto);
+    color: var(--shadowTexto);
+}
+.imagem img{
+    width: 100%;
+    height: 20rem;
+}
+
+.dadosPesquisa{
+    margin-left: 1rem;
+}
+
+.dado, .respDado{
+    display: inline;
+    margin-bottom: 5rem;
 }

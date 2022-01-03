@@ -9,7 +9,9 @@
   <link rel="stylesheet" href="./css/stylesPesquisa.css">
   <!-- links de javascript -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+  <script src="./js/pesquisa.js" defer></script>
   <script src="./js/teste.js" defer></script>
+  <script src="./js/configsForm.js" defer></script>
   <script src="./js/scripts.js" defer></script>
   <title>Login</title>
 </head>
@@ -35,29 +37,44 @@
   </div>
   <div class="Pesquisa">
     <div class="itemPesquisa" id="paraId">
-      <label for="idPesquisa">pesquisar por id</label>
-      <input type="checkbox" class="checkbox" id="idPesquisa">
+      <button value="checked" class="checkbox" id="idPesquisa">pesquisar por id</button>
       <input type="number" class="item" id="itemId">
     </div>
     <div class="itemPesquisa" id="paraNome">
-      <label for="nomePesquisa">pesquisar por nome</label>
-      <input type="checkbox" class="checkbox" id="nomePesquisa">
-      <input type="text" class="item" id="itemNome">
-    </div>
+      <button class="checkbox" id="nomePesquisa">pesquisar por nome</button>
+      <input type="text" class="item" id="itemNome" onError="this.onerror=null;this.alert('deu ruim')">
+     </div>
 
-    <div class="itemPesquisa" id="paraEmail">
-      <label for="emailPesquisa">pesquisar por email</label>
-      <input type="checkbox" class="checkbox" id="emailPesquisa">
-      <input type="email" class="item" id="itemEmail">
+    <div class="itemPesquisa" id="validaEmail" action="#">
+      <button class="checkbox" id="emailPesquisa">pesquisar por email</button>
+      <input type="email" class="item" id="Email" onkeydown="validation()">
+      <span id="texto"></span>
     </div>
 
     <div class="itemPesquisa" id="paraData">
-      <label for="dataPesquisa">pesquisar por data</label>
-      <input type="checkbox" class="checkbox" id="dataPesquisa">
-      <input type="date" class="item" id="itemData">
+      <button class="checkbox" id="dataPesquisa">Pesquisar por data</button>
+      <input type="date" class="item" id="itemData">      
     </div>
     <input type="submit" class="enviaPesquisa" id="envio">
   </div>
+
+
+  <div class="teste">
+    <div class="card pessoaPesquisa">
+      <div class="imagem">
+          <img src="./img/yamamoto.png" alt="">
+      </div>
+      <div class="dadosPesquisa">
+          <h3>id</h3>
+          <span>nome</span><br>
+          <h3>nome</h3>
+          <span>nome</span><br>
+          <h3>email</h3>
+          <span>nome</span>
+      </div>
+  </div>
+  </div>
+
 </body>
 
 </html>
