@@ -23,7 +23,7 @@
 
 .itemPesquisa{
     width: 90%;
-    /* display: none; */
+    display: none;
     margin: 1rem 0rem 0.5rem 1rem;
     font-size: 1.25rem;
 }
@@ -40,7 +40,7 @@
 }
 
 .enviaPesquisa{
-    /* display: none; */
+    display: none;
     margin: 1rem;
 }
 
