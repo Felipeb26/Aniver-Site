@@ -51,38 +51,37 @@
       <button type="button" class="enviar" name="apaga" id="apaga" onclick="doDelete()"></button>
     </div>
 
-    <div class="card cardAltera">
-      <div class="meuForm">
-        <div class="envio">
-          <div class="dados">
-            <label>Nome</label><br>
-            <input minlength="1" maxlength="50" type="text" id="nome" autocomplete="off"><br>
-            <label>CPF</label><br>
-            <input minlength="11" maxlength="14" type="text" id="cpf" autocomplete="off" onkeydown="mascaraCpf()"><br>
-            <label>Data de Nascimento</label><br>
-            <input type="date" id="nascimento" autocomplete="off">
-            <div id="validaEmail" action="#">
-              <label>Email</label><br>
-              <input type="email" id="Email" class="Email" placeholder="Adicione o email aqui" autocomplete="off"
-                onkeydown="validation()">
-              <span id="texto"></span>
-            </div>
+    <div class="meuForm">
+      <div class="envio">
+        <div class="dados">
+          <label>Nome</label><br>
+          <input minlength="1" maxlength="50" type="text" id="nome" autocomplete="off"><br>
+          <label>CPF</label><br>
+          <input minlength="11" maxlength="14" type="text" id="cpf" autocomplete="off" onkeydown="mascaraCpf()"><br>
+          <label>Data de Nascimento</label><br>
+          <input type="date" id="nascimento" autocomplete="off">
+          <div id="validaEmail" action="#">
+            <label>Email</label><br>
+            <input type="email" id="Email" class="Email" placeholder="Adicione o email aqui" autocomplete="off"
+              onkeydown="validation()">
+            <span id="texto"></span>
           </div>
-          <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Check me out</label>
-          </div>
-          <label class="form-control arqui" for="arquivo">ESCOLHER FOTO</label>
-          <input type="file" accept="image/*" onchange="loadFile(event)" name="aquivo" id="arquivo" />
-          <label class="form-control Enviar" for="envio">ALTERAR</label>
-          <button type="submit" class="enviar" name="envio" id="envio" onclick="doAltera()"></button>
-          <img class="prevImg" id="imgPrev" />
-          <img class="compactImage" id="minImage"/>
-          </form>
         </div>
+        <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+          <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        </div>
+        <label class="form-control arqui" for="arquivo">ESCOLHER FOTO</label>
+        <input type="file" accept="image/*" onchange="loadFile(event)" name="aquivo" id="arquivo" />
+        <label class="form-control Enviar" for="envio">ALTERAR</label>
+        <button type="submit" class="enviar" name="envio" id="envio" onclick="doAltera()"></button>
+        <img class="prevImg" id="imgPrev" />
+        <img class="compactImage" id="minImage" />
+        </form>
       </div>
     </div>
   </div>
+
 </body>
 
 </html>

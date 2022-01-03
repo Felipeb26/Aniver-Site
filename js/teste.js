@@ -1,18 +1,57 @@
-var nome = document.querySelector("#nome");
-var cpf = document.querySelector("#cpf");
-var nascimento = document.querySelector("#nascimento");
-var email = document.querySelector("#Email");
-var foto = document.querySelector('#imgPrev');
-var arquivo = document.querySelector('#arquivo');
+var burguer = document.querySelector("#burguer");
 
-arquivo.addEventListener('click', e=>{
-    
-    var raw = JSON.stringify({
-        nome: nome.ariaValueMax,
-        cpf: cpf.value,
-        nascimento: nascimento.value,
-        email: email.value,
-        foto: foto.src
-    })
-    console.log(raw)
+var id = document.querySelector("#paraId");
+var nome = document.querySelector("#paraNome");
+var email = document.querySelector("#paraEmail");
+var data = document.querySelector("#paraData");
+var envio = document.querySelector("#envio");
+
+
+burguer.addEventListener('change', () => {
+    if (burguer.checked) {
+        id.style.display = 'block';
+        nome.style.display = 'block';
+        email.style.display = 'block';
+        data.style.display = 'block';
+        envio.style.display = 'block';
+    } else {
+        id.style.display = 'none';
+        nome.style.display = 'none';
+        email.style.display = 'none';
+        data.style.display = 'none';
+        envio.style.display = 'none';
+        envio.style.display = 'none';
+    }
+})
+
+id.addEventListener('change', () => {
+    if (id.checked) {
+        document.querySelector("#itemId").style.display = 'block';
+    } else {
+        document.querySelector("#itemId").style.display = 'none';
+    }
+})
+
+nome.addEventListener('change', () => {
+    if (nome.checked) {
+        document.querySelector("#itemNome").style.display = 'none';
+    } else {
+        document.querySelector("#itemNome").style.display = 'block';
+    }
+})
+
+email.addEventListener('change', () => {
+    if (email.checked) {
+        document.querySelector("#itemEmail").style.display = 'block';
+    } else {
+        document.querySelector("#itemEmail").style.display = 'none';
+    }
+})
+
+data.addEventListener('change', () => {
+    if (data.checked) {
+        document.querySelector("#itemData").style.display = 'block';
+    } else {
+        document.querySelector("#itemData").style.display = 'none';
+    }
 })

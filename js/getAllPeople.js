@@ -21,11 +21,10 @@ fetch(url, {
 
 const criaCard = (itens) => {
     itens.forEach(item =>{
-        if( item.base64 == null){
         output +=
         `<div class="pessoas">
         <div class="imagem">
-            <img src="./img/user.png" alt="imagem da${item.nome}">
+            <img loading="lazy" src="${item.base64}" alt="foto de ${item.nome}" onError="this.onerror=null;this.src='/img/user.png';">
         </div>
         <div class="dados">
             <h5 class="dado">id:</h5>
@@ -38,24 +37,7 @@ const criaCard = (itens) => {
             <span class="respDado">${item.nascimento}</span>
         </div>
     </div>`;
-    }else{
-        output +=
-        `<div class="pessoas">
-        <div class="imagem">
-            <img src="${item.base64}" alt="">
-        </div>
-        <div class="dados">
-            <h5 class="dado">id:</h5>
-            <span class="respDado">${item.id}</span><br>
-            <h5 class="dado">nome:</h5>
-            <span class="respDado">${item.nome}</span><br>
-            <h5>email:</h5>
-            <span>${item.email}</span><br>
-            <h5 class="dado">nasceu:</h5>
-            <span class="respDado">${item.nascimento}</span>
-        </div>
-    </div>`;
-    }})
+    })
     cards.innerHTML = output;
 }
 
@@ -74,18 +56,11 @@ fetch(url, {
 
 const addCarrosel = (fotos) =>{
     fotos.forEach(foto  =>{
-        if(foto.base64 == null){
-    telaCarrosel +=
-    `<div class="images">
-        <img src="./img/usuario.png">
-    </div>`;  
-    }
-    else{
         telaCarrosel +=
     `<div class="images">
-        <img src="${foto.base64}">
+        <img src="${foto.base64}" onError="this.onerror=null;this.src='/img/user.png';">
     </div>`; 
-    }})
+    })
     carrosel.innerHTML = telaCarrosel;
 }
 

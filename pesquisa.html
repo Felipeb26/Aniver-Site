@@ -28,15 +28,36 @@
       </ul>
     </nav>
   </header>
-    
-  <div class="itensPesquisa">
-      <input type="checkbox" name="" id="check">
-      <label for="check" class="hamburguer">
-        <input type="date" name="" id="">
-        <input type="text" name="" id="">
-        <input type="number" name="" id="">
-      </label>
-      <input type="submit" value="">
+
+  <div class="menuHamburguer">
+    <label class="menu" for="burguer">&#9776</label>
+    <input type="checkbox" class="checkbox" id="burguer">
+  </div>
+  <div class="Pesquisa">
+    <div class="itemPesquisa" id="paraId">
+      <label for="idPesquisa">pesquisar por id</label>
+      <input type="checkbox" class="checkbox" id="idPesquisa">
+      <input type="number" class="item" id="itemId">
+    </div>
+    <div class="itemPesquisa" id="paraNome">
+      <label for="nomePesquisa">pesquisar por nome</label>
+      <input type="checkbox" class="checkbox" id="nomePesquisa">
+      <input type="text" class="item" id="itemNome">
+    </div>
+
+    <div class="itemPesquisa" id="paraEmail">
+      <label for="emailPesquisa">pesquisar por email</label>
+      <input type="checkbox" class="checkbox" id="emailPesquisa">
+      <input type="email" class="item" id="itemEmail">
+    </div>
+
+    <div class="itemPesquisa" id="paraData">
+      <label for="dataPesquisa">pesquisar por data</label>
+      <input type="checkbox" class="checkbox" id="dataPesquisa">
+      <input type="date" class="item" id="itemData">
+    </div>
+    <input type="submit" class="enviaPesquisa" id="envio">
   </div>
 </body>
+
 </html>
