@@ -56,13 +56,56 @@ envio.addEventListener('click', (e) => {
           })
     }
     else if(!nomeInput.value == "" || null){
-        console.log("foi "+nomeInput.value)
+      var urlNome = 'http://localhost:8080/pessoa/nomes/?nome='+nomeInput.value;
+      fetch(urlNome, {
+        mode: "cors",
+        method: "GET",
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        }
+      })
+      .then(response => {
+        if(response.status == 200){
+          response.json()
+          .then(data => console.log(data))
+          .catch(erro => console.log(erro))
+        }else{
+          swal.fire({
+            icon: "error",
+            title: "ERRO",
+            text: "Usuario não existe ou não encontrado",
+            confirmButtonText: "ok"
+          })}
+      })
     }
     else if(!dataInput.value == "" || null){
         console.log("foi")
     }
     else if(!emailInput.value == "" || null){
-        console.log("foi")
+      var urlId = 'http://localhost:8080/pessoa/email/?email=+'+emailInput.value
+        console.log(urlId)
+        fetch(urlId, {
+            mode: "cors",
+            method: "GET",
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${token}`
+            }
+          })
+          .then(response => {
+            if(response.status == 200){
+              response.json()
+              .then(data => cardId(data))
+              .catch(erro => console.log(erro))
+            }else{
+              swal.fire({
+                icon: "error",
+                title: "ERRO",
+                text: "Usuario não existe ou não encontrado",
+                confirmButtonText: "ok"
+              })}
+          })
     }
     console.log(raw)
 })
@@ -86,3 +129,26 @@ document.querySelector('.teste').innerHTML =
   <span class="respDado">${item.nascimento}</span><br>
 </div>
 </div>`}
+
+
+const cardNome = (itens) => {
+  itens.forEach(item =>{
+      output +=
+      `<div class="pessoas">
+      <div class="imagem">
+          <img loading="lazy" src="${item.base64}" alt="foto de ${item.nome}" onError="this.onerror=null;this.src='/img/user.png';">
+      </div>
+      <div class="dados">
+          <h5 class="dado">id:</h5>
+          <span class="respDado">${item.id}</span><br>
+          <h5 class="dado">nome:</h5>
+          <span class="respDado">${item.nome}</span><br>
+          <h5>email:</h5>
+          <span>${item.email}</span><br>
+          <h5 class="dado">nasceu:</h5>
+          <span class="respDado">${item.nascimento}</span>
+      </div>
+  </div>`;
+  })
+  cards.innerHTML = output;
+}
