@@ -43,3 +43,27 @@ btn.addEventListener('click' ,function(){
 //     "email": "felipeb2silva@gmail.com",
 //     "senha": "felipe2001"
 // });
+
+
+//seta tema escuro
+const html = document.querySelector('html')
+const darkMode = document.querySelector('.alteraCor')
+
+document.addEventListener('DOMContentLoaded', () => {
+    const darkModeStorage = localStorage.getItem('dark-mode')
+    const html = document.querySelector('html')
+    const inputDarkMode = document.getElementById('switch')
+
+    if(darkModeStorage){
+        html.setAttribute("dark", "true")
+    }
+    inputDarkMode.addEventListener('change', () => {
+        if(inputDarkMode.checked){
+            html.setAttribute("dark", "true")
+            localStorage.setItem('dark-mode', true)
+        }else{
+            html.removeAttribute("dark")
+            localStorage.removeItem('dark-mode')
+        }
+   })
+})
