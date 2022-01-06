@@ -57,14 +57,13 @@
 }
 
 .menu {
-    border: 2px solid var(--shadowTexto);
+    box-shadow: 0 0 15px var(--shadowTexto),inset 0 0 20px var(--shadowTexto);
+    color:  var(--shadowTexto);
     background-color: transparent;
-    color: var(--shadowTexto);
-    box-shadow: 5px 5px 5px solid var(--shadowTexto);
 }
 
 .menu:hover {
-    box-shadow: 0 0 15px var(--corCard), inset 0 0 15px var(--corCard);
+    box-shadow: 0 0 15px var(--corCard), inset 0px 0px 15px var(--corCard);
     border: 2px solid var(--corTexto);
     color: var(--corTexto);
 }
