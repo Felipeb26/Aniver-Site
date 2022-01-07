@@ -103,3 +103,9 @@
     text-shadow: 3px 3px 3px var(--corTexto);
     font-family: 'Lucida Sans';
 }
+
+.semLogin{
+    color: var(--shadowTexto);
+    text-shadow: 2px 2px 5px white;
+    background-color: transparent;
+}

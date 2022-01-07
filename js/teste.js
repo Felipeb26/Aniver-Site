@@ -14,7 +14,7 @@ var dataInput = document.querySelector("#itemData");
 var idInput = document.querySelector("#itemId");
 var emailInput = document.querySelector("#Email");
 
-    burguer.addEventListener('change', () => {
+burguer.addEventListener('change', () => {
         if (burguer.checked) {
             id.style.display = 'block';
             nome.style.display = 'block';
@@ -94,3 +94,10 @@ data.addEventListener('click', () => {
         dataInput.style.display = 'none';
     }
 })
+
+document.addEventListener("keypress", function(e){
+    if(e.key === "/"){
+      const btn = document.querySelector("#burguer");
+      btn.click();
+    }
+  })

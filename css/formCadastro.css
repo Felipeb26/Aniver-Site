@@ -44,31 +44,32 @@ input[type="file"] {
 }
 
 .arqui,
-.Enviar {
+.Enviar, .procuraFoto{
     background: #1b98e0;
     border-color: var(--corTexto);
     color: var(--corTexto);
-    display: inline-block;
+    display: inline;
     font-weight: bold;
     cursor: pointer;
     width: 10rem;
+    padding: 5px 8px 5px 8px;
 }
 
 .arqui:hover,
-.Enviar:hover {
+.Enviar:hover,
+.procuraFoto:hover {
     color: #1b98e0;
     background-color: var(--corTexto);
     border-color: #1b98e0;
 }
 
-.arqui {
-    margin-left: 10rem;
-    margin-right: 1rem;
-    padding-left: 20px;
-}
+/* .procuraFoto{
+    margin-left: 6rem;
+    color: var(--corTexto);
+} */
 
-.Enviar {
-    padding-left: 30px;
+.arqui{
+    margin-left: 10rem;
 }
 
 .enviar {

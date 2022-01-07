@@ -126,7 +126,7 @@ function cardId(item){
 document.querySelector('.teste').innerHTML =
 `<div class="card pessoaPesquisa">
 <div class="imagem">
-  <img src="${item.base64}" alt="imagem de ${item.nome}"  onError="this.onerror=null;this.src='/img/user.png';">
+  <img src="${item.base64}" alt="imagem de ${item.nome}"  onError="this.onerror=null;this.src='./img/user.png';">
 </div>
 <div class="dadosPesquisa">
   <h4 class="dado">ID:</h4>
@@ -164,3 +164,11 @@ const cardNome = (itens) => {
   })
   cards.innerHTML = output;
 }
+
+
+document.addEventListener("keypress", function(e){
+  if(e.key === "Enter"){
+    const btn = document.querySelector("#envio");
+    btn.click();
+  }
+})

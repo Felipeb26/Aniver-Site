@@ -1,0 +1,65 @@
+.logonCard{
+    display: flex;
+    justify-content: center;
+}
+
+
+.corpoLogon{
+    margin-top: 2rem;
+    background: var(--corCard);
+    box-shadow: 5px 5px 5px;
+    border-radius: 0.5rem;
+    width: 50rem;
+    height: 49rem;
+    background-image: url(/img/ftLogon.png);
+    background-repeat: no-repeat;
+}
+
+.title{
+    margin: 5rem 5rem 5rem 5rem;
+}
+
+.titleTitulo{
+    font-size: 40px;
+    color: var(--shadowTexto);
+    text-shadow: 2px 2px 5px var(--corTexto);
+}
+
+.meuForm {
+    margin: 50px;
+
+    margin-left: 20px;
+}
+
+.input{
+    border-radius: 5px;
+    margin: 5px 0px 10px 0px;
+    width: 70%;
+    height: 30px;
+}
+
+.label{
+    color: var(--shadowTexto);
+    font-size: 30px;
+}
+
+.button{
+    margin: 0 0 0 10rem;
+    width: 200px;
+    height: 50px;
+    background: #1b98e0;
+    border-color: var(--corTexto);
+    box-shadow: 2px 2px 15px var(--corTexto);
+    color: var(--corTexto);
+    font-weight: bold;
+    cursor: pointer;
+    width: 10rem;
+    padding: 5px 8px 5px 8px;
+}
+
+.button:hover{
+    color: #1b98e0;
+    background-color: var(--corTexto);
+    border-color: #1b98e0;
+    box-shadow: 2px 2px 15px #1b98e0;
+}

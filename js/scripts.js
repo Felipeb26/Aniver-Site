@@ -1,31 +1,3 @@
-var link = 'http://localhost:8080/login'
-
-var raw = JSON.stringify({
-    "email": "felipeb2silva@gmail.com",
-    "senha": "felipe2001"
-});
-
-const RecebeToken = () => {
-    fetch(link, {
-            method: 'POST',
-            mode: 'cors',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: raw
-        })
-        .then(response => {
-            if (response.ok) {
-                return response.text();
-            } else {
-                alert('Não foi possível conectar no servidor')
-            }
-        }).then(data => {
-            localStorage.setItem('token',
-                (data));
-        })
-};
-
 const Aniversariantes = () => {
     fetch(link)
         .then((response) => {
@@ -41,7 +13,6 @@ const Aniversariantes = () => {
             console.error(error.message)
         })
 }
-const RefreshToken = setInterval(RecebeToken, 15 * 60 * 100, true);
 
 //Cria o Dark-Mode
 const html = document.querySelector('html')
@@ -64,4 +35,26 @@ document.addEventListener('DOMContentLoaded', () => {
             localStorage.removeItem('dark-mode')
         }
    })
+})
+
+const saida = document.querySelector('#sairLogin')
+
+saida.addEventListener('click', function(e){
+    e.preventDefault();
+    localStorage.setItem('token', '')
+    window.location.href = 'index.html'
+})
+
+document.addEventListener('click' ,function verifyToken(){
+    if(localStorage == "Bad Credentials"){
+        swal.fire({
+            title: "erro",
+            icon: "error",
+            text: "usuario não estálogado, é necessario se logar",
+        }).then(result =>{
+            if(result.isConfirmed){
+                window.location.href = 'token.html'
+            }
+        })
+    }
 })
