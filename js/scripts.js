@@ -41,16 +41,16 @@ const saida = document.querySelector('#sairLogin')
 
 saida.addEventListener('click', function(e){
     e.preventDefault();
-    localStorage.setItem('token', '')
+    localStorage.setItem("token", "null")
     window.location.href = 'index.html'
 })
 
 document.addEventListener('click' ,function verifyToken(){
-    if(localStorage == "Bad Credentials"){
+    if(localStorage.token === "null" && "Bad Credentials"){
         swal.fire({
             title: "erro",
             icon: "error",
-            text: "usuario não estálogado, é necessario se logar",
+            text: "usuario não está logado, será necessario se logar",
         }).then(result =>{
             if(result.isConfirmed){
                 window.location.href = 'token.html'

@@ -60,11 +60,8 @@
     box-shadow: 0 0 15px var(--shadowTexto),inset 0 0 20px var(--shadowTexto);
     color:  var(--shadowTexto);
     background-color: transparent;
-<<<<<<< HEAD
     color: var(--shadowTexto);
     box-shadow: 0px 0px 15px  var(--shadowTexto), inset 0 0 15px var(--shadowTexto);
-=======
->>>>>>> a9a50d3d4221fe381a1ae0b1f12e7b46de85009f
 }
 
 .menu:hover {
