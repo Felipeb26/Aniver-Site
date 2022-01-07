@@ -7,6 +7,12 @@ var nascimento = document.querySelector("#nascimento");
 var email = document.querySelector("#Email");
 var foto = document.querySelector('#minImage');
 
+document.addEventListener("keypress", function(e) {
+    if(e.key === 'Enter') {
+      var btn = document.querySelector("#envio");
+      btn.click();}
+  });
+
 function cadastrar() {
     swal.fire({
         title: 'Escolha a foto',
@@ -80,3 +86,20 @@ function cadastrar() {
         }
     })
 }
+
+document.querySelector("#nome").onkeypress = function(e) {
+    var chr = String.fromCharCode(e.which);
+    if ("qwertyuioplkjhgfdsazxcvbnmQWERTYUIOPLKJHGFDSAZXCVBNM".indexOf(chr) < 0)
+      return false;
+  };
+
+  document.querySelector("#Email").onkeypress = function(e) {
+    var chr = String.fromCharCode(e.which);
+    if ("0123456789@qwertyuioplkjhgfdsazxcvbnmQWERTYUIOPLKJHGFDSAZXCVBNM".indexOf(chr) < 0)
+      return false;
+  };
+ document.querySelector("#cpf").onkeypress = function(e) {
+    var chr = String.fromCharCode(e.which);
+    if ("1234567890".indexOf(chr) < 0)
+      return false;
+  };

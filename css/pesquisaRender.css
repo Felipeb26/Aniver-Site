@@ -60,7 +60,7 @@
     border: 2px solid var(--shadowTexto);
     background-color: transparent;
     color: var(--shadowTexto);
-    box-shadow: 5px 5px 5px solid var(--shadowTexto);
+    box-shadow: 0px 0px 15px  var(--shadowTexto), inset 0 0 15px var(--shadowTexto);
 }
 
 .menu:hover {

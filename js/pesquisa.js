@@ -14,6 +14,18 @@ var dataInput = document.querySelector("#itemData");
 var idInput = document.querySelector("#itemId");
 var emailInput = document.querySelector("#Email");
 
+
+document.addEventListener("keypress", function(e) {
+  if(e.key === 'Enter') {
+    var btn = document.querySelector("#envio");
+    btn.click();}});
+
+document.addEventListener("keypress", function(e) {
+  if(e.key === '/') {
+  var burguer = document.querySelector("#burguer");;
+  burguer.click();}});
+
+
 envio.addEventListener('click', (e) => {
     e.preventDefault();
 
@@ -83,7 +95,7 @@ envio.addEventListener('click', (e) => {
         console.log("foi")
     }
     else if(!emailInput.value == "" || null){
-      var urlId = 'http://localhost:8080/pessoa/email/?email=+'+emailInput.value
+      var urlId = 'http://localhost:8080/pessoa/email/?email='+emailInput.value
         console.log(urlId)
         fetch(urlId, {
             mode: "cors",
