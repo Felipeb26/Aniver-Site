@@ -29,14 +29,20 @@ btn.addEventListener('click' ,function(){
                     title: "Login Incorreto",
                     text: "tente novamente"
                 })
-            }else{
+            }else if(localStorage.token != null){
                 localStorage.setItem('token',(data));
+                swal.fire({
+                    title: "CONCLUIDO",
+                    icon: "success",
+                    text: "usuario logado com sucesso"
+                }).then(result =>{
+                    if(result.isConfirmed){
+                        window.location.href = 'index.html'
+                    }
+                })
             }
         })
     });
-
-// const recarregaToken =  setInterval(reloadToken ,15 * 60 * 100, true)
-
 
 //  Dados padrão para se logar
 // var raw = JSON.stringify({
@@ -66,4 +72,10 @@ document.addEventListener('DOMContentLoaded', () => {
             localStorage.removeItem('dark-mode')
         }
    })
+})
+
+const saida = document.querySelector('#sairLogin')
+saida.addEventListener('click', function(e){
+    e.preventDefault();
+    localStorage.setItem("token", "null");
 })
