@@ -37,4 +37,6 @@ function SlideShow(n) {
   slides[slidePosition-1].style.display = "block";
 } 
 
-//  window.location.href= "login.html"
+var body = document.querySelector(body);
+
+body.onload(localStorage.setItem("token", "null"))

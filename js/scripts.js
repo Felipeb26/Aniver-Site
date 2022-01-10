@@ -45,8 +45,11 @@ saida.addEventListener('click', function(e){
     window.location.href = 'index.html'
 })
 
+
+const tokenLocal = Object.keys(localStorage.token).length === 1
+
 document.addEventListener('click' ,function verifyToken(){
-    if(localStorage.token === "null" && "Bad Credentials"){
+    if(localStorage == "Bad Credentials" || "null"){
         swal.fire({
             title: "erro",
             icon: "error",

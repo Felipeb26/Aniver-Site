@@ -18,7 +18,7 @@ btn.addEventListener('click' ,function(){
             }else{
                 swal.fire({
                     title: "erro",
-                    icon: "eror",
+                    icon: "error",
                     text: "é necessario se logar"
                 })
             }
@@ -30,7 +30,7 @@ btn.addEventListener('click' ,function(){
                     text: "tente novamente"
                 })
             }else if(localStorage.token != null){
-                localStorage.setItem('token',(data));
+                localStorage.setItem("token",data);
                 swal.fire({
                     title: "CONCLUIDO",
                     icon: "success",
@@ -42,7 +42,7 @@ btn.addEventListener('click' ,function(){
                 })
             }
         })
-    });
+});
 
 //  Dados padrão para se logar
 // var raw = JSON.stringify({
@@ -52,6 +52,7 @@ btn.addEventListener('click' ,function(){
 
 
 //seta tema escuro
+
 const html = document.querySelector('html')
 const darkMode = document.querySelector('.alteraCor')
 
